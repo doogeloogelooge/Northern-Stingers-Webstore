@@ -1,244 +1,89 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Northern Stingers | Premium Fishing Gear</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+    <title>Northern Stingers</title>
 </head>
 <body>
-
-    <div class="top-bar">
-        <span>📦 Fri frakt vid order över 399 kr! (Annars 61 kr spårbart med PostNord)</span>
-    </div>
-
-    <header class="main-header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="#">NORTHERN<span>STINGERS</span></a>
-            </div>
-            
-            <div class="search-container">
-                <input type="text" placeholder="Sök stinger, tafsar, jiggskallar...">
-                <button type="button">Sök</button>
-            </div>
-
-            <div class="header-actions">
-                <a href="#" class="action-btn">👤 Konto</a>
-                <a href="#" class="action-btn cart-btn">🛒 Varukorg (<span id="cart-count">0</span>)</a>
-            </div>
-        </div>
+    <header id="hero-banner">
+        <strong>Free shipping for all orders over 399kr!</strong>
     </header>
-
-    <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#stingers">Stingers</a></li>
-                <li><a href="#leaders">Tafsar</a></li>
-                <li><a href="#jigheads">Jiggskallar</a></li>
-                <li><a href="#components">Komponenter & Krokar</a></li>
-                <li><a href="#essentials">Tillbehör</a></li>
-            </ul>
+    <header id="main-header">
+        <button id="logo-button">
+            <img id="logo-button-img" src="images/logo.png" alt="logo">
+        </button>
+        <div id="search-bar">
+            <input type="text" placeholder="Follow your heart..."></input>
+            <button><img src="images/search.png" alt=""></button>
         </div>
+        <nav id="header-nav">
+            <button id="favorites-btn"><img src="images/heart.png" alt=""></button>
+            <button id="account-btn"><img src="images/user.png" alt=""></button>
+            <button id="cart-btn"><img src="images/shopping-cart.png" alt=""></button>
+        </nav>
+    </header>
+    
+    <nav class="nav-bar">
+        <ul class="nav-links">
+
+            <li><a href="#">Fishing Gear</a>
+                <ul class="dropdown">
+                    <p>Product Range</p>
+                    <li>
+                        <a href="#">Stingers</a>
+                    </li>
+                    <li>
+                        <a href="#">Leaders</a>
+                    </li>
+                    <li>
+                        <a href="#">Jig Heads</a>
+                    </li>
+                    <li>
+                        <a href="#">Hooks</a>
+                    </li>
+                    <li>
+                        <a href="#">Småplock</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">Electronics</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="#">Scales</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">News</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="#">Latest</a>
+                    </li>
+                    <li>
+                        <a href="#">Up and Coming</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="deals"><a href="#">Deals</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="#">Ongoing Deals</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
     </nav>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Sthlm Predator Fishing</h1>
-                <p>Högkvalitativa stingers och tillbehör till priser som alla har råd med.</p>
-                <a href="#stingers" class="cta-button">Visa sortiment</a>
-            </div>
-        </section>
-
-        <section id="stingers" class="product-section">
-            <h2>Stingers</h2>
-            <div class="product-grid">
-                
-                <div class="product-card" id="prod-chain-stinger">
-                    <div class="product-image">
-                        <img src="images/chain-stinger.png" id="img-chain-stinger" alt="Chain Stinger">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Chain Stinger</h3>
-                        
-                        <div class="selectors">
-                            <select class="variant-select">
-                                <option value="Standard">Standard</option>
-                                <option value="UV">UV-Variant</option>
-                            </select>
-                            <select class="size-select">
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">29</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="leaders" class="product-section">
-            <h2>Tafsar & Jiggskallar</h2>
-            <div class="product-grid">
-
-                <div class="product-card" id="prod-mono-leader">
-                    <div class="product-image">
-                        <img src="images/mono-leader.png" alt="Mono Leader">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Mono Leader</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select">
-                                <option value="20cm">20cm</option>
-                                <option value="30cm">30cm</option>
-                                <option value="40cm">40cm</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">29</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-                <div id="jigheads" class="product-card" id="prod-jig-heads">
-                    <div class="product-image">
-                        <img src="images/jig-heads.png" alt="Jig Heads 4-Pack">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Jiggskallar (4-pack)</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select">
-                                <option value="7g">7g</option>
-                                <option value="10g">10g</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">35</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="components" class="product-section">
-            <h2>Delar & Krokar</h2>
-            <div class="product-grid">
-
-                <div class="product-card" id="prod-split-rings">
-                    <div class="product-image">
-                        <img src="images/split-rings.png" alt="Split Rings">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Fjäderringar (Split Rings)</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select">
-                                <option value="10st">10-pack</option>
-                                <option value="15st">15-pack</option>
-                                <option value="20st">20-pack</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">17</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-                <div class="product-card" id="prod-swivels">
-                    <div class="product-image">
-                        <img src="images/swivels.png" alt="Swivels">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Lekanden (Swivels)</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select">
-                                <option value="10st">10-pack</option>
-                                <option value="15st">15-pack</option>
-                                <option value="20st">20-pack</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">19</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-                <div class="product-card" id="prod-uv-hooks">
-                    <div class="product-image">
-                        <img src="images/uv-hooks.png" alt="UV Hooks 4-Pack">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>UV Krokar (4-pack)</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select">
-                                <option value="#1/0">#1/0</option>
-                                <option value="#2/0">#2/0</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">40</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="essentials" class="product-section">
-            <h2>Fishing Essentials</h2>
-            <div class="product-grid">
-
-                <div class="product-card" id="prod-digital-scale">
-                    <div class="product-image">
-                        <img src="images/digital-scale.png" alt="Digital Våg">
-                    </div>
-                    <div class="product-info">
-                        <span class="brand">Northern Stingers</span>
-                        <h3>Digital Våg</h3>
-                        
-                        <div class="selectors">
-                            <select class="size-select" disabled>
-                                <option value="Standard">Standard</option>
-                            </select>
-                        </div>
-
-                        <div class="price"><span class="price-val">199</span> kr</div>
-                        <button class="add-to-cart">Lägg i varukorg</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
+    <main>
+        <article>
+            
+        </article>
     </main>
-
-    <footer>
-        <div class="container footer-container">
-            <p>&copy; 2026 Northern Stingers. Baserad i Stockholm.</p>
-            <div class="socials">
-                <a href="https://instagram.com/northernstingers" target="_blank">Instagram: @northernstingers</a>
-                <a href="https://tiktok.com/@callzonker" target="_blank">TikTok: @callzonker</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
