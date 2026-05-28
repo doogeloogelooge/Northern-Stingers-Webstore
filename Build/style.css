@@ -249,13 +249,26 @@ article{
   margin-top: 16px;
 }
 
+.banner-grid2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: transparent;
+  margin-top: 16px;
+}
+
 .banner-card{
   position: relative;
   overflow: hidden;
   aspect-ratio: 1 / 1;
 }
 
-.banner-card img{
+.banner-card2{
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / .5;
+}
+
+.banner-card img, .banner-card2 img{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -263,13 +276,13 @@ article{
   transition: 0.3s ease;
 }
 
-.banner-card img:hover{
+.banner-card img:hover, .banner-card2 img:hover{
   transform: scale(110%);
   transition: 0.3s ease;
   cursor: pointer;
 }
 
-.banner-card img:active{
+.banner-card img:active, .banner-card2 img:active{
   transform: scale(100%);
   transition: 0.18s ease;
 }
@@ -300,6 +313,7 @@ article{
   left: 25px;
   right: 150px;
   z-index: 2;
+  transition: 0.3s ease;
 }
 
 .text-block a {
@@ -397,7 +411,7 @@ footer{
   width: 100%;
   height: 700px;
   margin: none;
-  margin-top: 700px;
+  margin-top: 75px;
 
   bottom: 0px;
 }
@@ -472,6 +486,33 @@ footer{
   display: flex;
   gap: 15px;
   margin-top: 15px;
+}
+
+.payment-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.payment-option{
+  width: 50px;
+  height: 36px;
+  background-color: #ffffff;
+  color: #1c1c1c;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16pt;
+  transition: opacity 0.2s;
+}
+
+.payment-option img{
+  max-width: 36px;
+  border-radius: 15px;
+  object-fit: contain;
 }
 
 .social-circle {
@@ -560,6 +601,8 @@ p{
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Exactly 5 equal width columns */
   gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* Individual Card Styles */
@@ -676,4 +719,30 @@ p{
   .product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 Columns on Mobile screens */
   .view-all-link { position: absolute; bottom: -25px; left: 0; }
   .tabs-container { margin-bottom: 40px; }
+}
+
+
+.skryt-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 75px;
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+
+.skryt-del{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.skryt-del span{
+  color: #282828;
+  font-weight: normal;
+  font-size: 12pt;
+  margin-left: 10px;
+  text-align: center;
 }
