@@ -746,3 +746,7 @@ p{
   margin-left: 10px;
   text-align: center;
 }
+
+.policy li, .policy h1, .policy h2, .policy p{
+  color: #0A090C;
+}
