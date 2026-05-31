@@ -83,6 +83,7 @@ body {
   font-size: large;
   border-radius: 30px;
   transition: 0.3s ease;
+  margin-left: 10px;
 }
 
 #search-bar button img{
@@ -95,6 +96,12 @@ body {
   cursor: pointer;
   transform: scale(110%);
   transition: 0.3s ease;
+}
+#search-bar button:active{
+  background-color: #d4d8e2;
+  cursor: pointer;
+  transform: scale(85%);
+  transition: 0.18s ease;
 }
 
 #header-nav{
@@ -862,4 +869,15 @@ p{
 
 .policy li, .policy h1, .policy h2, .policy p{
   color: #0A090C;
+}
+
+.product-container {
+    display: flex;
+    gap: 40px; /* Creates the gap between left and right column */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.product-gallery, .product-details {
+    flex: 1; /* Gives both columns equal starting width */
 }

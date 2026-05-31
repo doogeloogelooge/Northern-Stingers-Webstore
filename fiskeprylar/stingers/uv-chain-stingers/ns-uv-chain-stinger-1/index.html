@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/productpage.css">
   <script src="/js/script.js"></script>
+  <script src="/js/productpage.js"></script>
   <title>Northern Stingers</title>
 </head>
 <body>
@@ -82,56 +84,84 @@
   </nav>
 
   <main>
+    <div class="product-page-scope">
 
-    <article>
-        <div class="shop-container">
-            <!-- 1. LEFT SIDEBAR -->
-            <aside class="sidebar">
-                <nav class="category-menu">
-                    <div class="menu-item active">
-                        <span><a href="/fiskeprylar">Fiskeprylar</a><span> / </span><a href="/fiskeprylar/krokar/">Krokar</a><span> / </span><a href="/fiskeprylar/krokar/standard-krokar"><strong>Standard Krokar</strong></a></span>
-                    </div>
-                <!-- Add more menu items here -->
+        <main class="product-container">
+            
+            <section class="product-gallery">
+                <div class="main-image">
+                    <img id="product-main-img" src="/images/products/large-uv-stinger.png" alt="NS Large UV Chain Stinger" class="active-image">
+                    <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa fa-star-o"></i></button>
+                </div>
+                <div class="thumbnail-gallery">
+                    <img id="product-thumb-img" src="/images/products/large-uv-stinger.png" alt="NS Large UV Chain Stinger" class="active-thumb">
+                </div>
+            </section>
+
+            <section class="product-details">
+                
+                <nav class="breadcrumbs">
+                    <a href="/fiskeprylar">Fiskeprylar</a> / <a href="/fiskeprylar/stingers">Stingers</a> / <a href="/fiskeprylar/stingers/chain-stingers"> UV Chain Stingers</a> / <span class="current">NS UV Chain Stinger</span>
                 </nav>
-            </aside>
 
-            <!-- 2. MAIN CONTENT AREA -->
-            <main class="main-content">
-                <header class="category-header">
-                <h1>Standard Krokar</h1>
-                <p class="category-desc">Standard Krokar för alla fiskeintresserade!</p>
-                </header>
-
-                <!-- Filter & Sort Bar -->
-                <div class="filter-bar">
-                <div class="filters">
-                    <button class="filter-btn">Sortera efter <i class="fa fa-sort-amount-asc" aria-hidden="true"></i></button>
-                    <button class="filter-btn">Kampanjer <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
-                    <button class="filter-btn">Pris <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
-                </div>
-                <span class="product-count">1 Produkt</span>
+                <div class="product-meta">
+                    <span class="brand">NS</span> | <span class="art-nr">Artnr: NS-ST-01B</span>
                 </div>
 
-                <!-- Product Grid -->
-                <div class="product-grid1">
-                <!-- Product Card 1 -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="#"><img src="/images/products/standard-krokar.png" alt="NS Standard Krokar"></a>
-                            <button class="wishlist-btn"><i class="fa fa-star-o"></i></button>
+                <h1 class="product-title">NS UV Chain Stinger</h1>
+                <!-- <div class="rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span> 
+                    <span class="rating-text">4.9 (12)</span>
+                    <a href="#" class="reviews-link">Recensioner (2)</a>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="size-select" class="visually-hidden">Välj storlek</label>
+                    <select id="size-select" class="variant-dropdown">
+                        <option value="l" data-price="45kr" data-image="/images/products/large-uv-stinger.png" data-alt="NS Large UV Chain Stinger">Large</option>
+                        <option value="m" data-price="39kr" data-image="/images/products/medium-uv-stinger.png" data-alt="NS Medium UV Chain Stinger">Medium</option>
+                        <option value="s" data-price="35kr" data-image="/images/products/small-uv-stinger.png" data-alt="NS Small UV Chain Stinger">Small</option>
+                    </select>
+                </div>
+
+                <div class="addons-section">
+                    <p class="section-title">Tillval:</p>
+                    <div class="addon-card">
+                        <img src="/images/products/mono-tafs.png" alt="NS Mono Tafs" class="addon-img">
+                        <div class="addon-info">
+                            <span class="addon-name">NS Mono Tafs 2-pack 30cm</span>
+                            <span class="addon-price">35kr</span>
                         </div>
-                        <div class="product-info">
-                            <a href="#"><h3 class="product-title"><strong>NS</strong > Standard Krokar 4-Pack</h3></a>
-                            <p class="product-price red-text">29kr</p>
-                            
-                        </div>
+                        <input type="checkbox" id="addon-checkbox" class="addon-checkbox">
                     </div>
-                <!-- Repeat product cards -->
                 </div>
-            </main>
-        </div>
-    </article>
-    
+
+                <div class="product-price">
+                    <span id="price-display" class="current-price">39kr</span>
+                </div>
+
+                <div class="purchase-actions">
+                    <div class="quantity-selector">
+                        <button type="button" class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input" aria-label="Kvantitet">
+                        <button type="button" class="qty-btn plus">+</button>
+                    </div>
+                    <button type="submit" class="buy-button"><i class="fa fa-shopping-cart"></i> Köp nu!</button>
+                </div>
+
+                <ul class="stock-status">
+                    <li class="in-stock"><i class="fa fa-check-square"></i> 5 i lager</li>
+                    <li class="store-availability"><i class="fa fa-times"></i> Finns inte i butik</li>
+                    <li class="shipping-speed"><i class="fa fa-truck"></i> Omgående leverans</li>
+                </ul>
+
+                <div class="payment-methods">
+                    <a href="https:/www.swish.nu" class="payment-option"><img src="/images/swish.png" alt="swish"></a>
+                </div>
+
+            </section>
+        </main>
+    </div>
   </main>
 
   <footer>

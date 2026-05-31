@@ -13,7 +13,8 @@ Parts and Hooks:
 Split Rings [10st, 15st, 20st], [Prices: 17, 27, 33] (kr).
 Swivels [10st, 15st, 20st], [Prices: 19, 29, 35] (kr).
 Snaps [10st, 15st, 20st], [Prices: 15, 25, 30] (kr).
-UV Hooks 4-Pack [#1/0, #2/0], [Prices: 40, 40] (kr).
+UV Hooks 4-Pack [#1/0, #2/0], [Prices: 39] (kr).
+Standard Hooks 4-Pack [#2/0, #3/0], [Prices: 29] (kr).
 
 Fishing Essentials:
 Digital Scale [Standard], [Prices: 199] (kr).
@@ -23,3 +24,6 @@ SHIPPING:
 61kr
 For orders valued more than 399kr: free.
 PostNord, trackable.
+
+ns-chain-stinger-1: NS-ST-01A, sizes +?l,m,s
+ns-uv-chain-stinger-1. NS-ST-01B, sizes +?l,m,s
