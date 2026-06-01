@@ -68,33 +68,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================================================
-    // DYNAMIC ADD TO CART LOGIC
-    // ==========================================================================
     if (buyButton && sizeSelect) {
-        buyButton.addEventListener("click", function () {
-            // 1. Get the currently active selected option tag
+        buyButton.addEventListener("click", function (event) {
             const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
-            
-            // 2. Gather variant details from your option tags
-            // Inside your buyButton click listener in productpage.js:
-            const variantValue = selectedOption.value; // grabs "1/0"
-            
-            const rawPrice = selectedOption.getAttribute("data-price"); // e.g., "39 kr"
-            const variantImg = selectedOption.getAttribute("data-image"); // e.g., "/images/products/jiggskallar.png"
-            
-            // 3. Clean and parse numbers out of your text string values
-            const baseId = buyButton.getAttribute("data-base-id");
-            const cleanPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0; // Strips out "kr" safely
-            
-            // 4. Construct customized variant configurations dynamically
-            const dynamicId = `${baseId}?variant=${variantValue}`;
-            const dynamicTitle = `NS Runda Jiggskallar 4-Pack (${variantValue})`;
-            const brand = "NS";
+            if (!selectedOption) return;
 
-            // 5. Fire the cross-file cart handler function globally exposed by cart.js
+            const variantValue = selectedOption.value; 
+            const variantText = selectedOption.text;   
+            const rawPrice = selectedOption.getAttribute("data-price") || "0"; 
+            const variantImg = selectedOption.getAttribute("data-image") || ""; 
+            
+            const currentBtn = event.currentTarget;
+            const baseId = currentBtn.getAttribute("data-base-id");
+            const productTitle = currentBtn.getAttribute("data-product-title"); 
+            const brand = currentBtn.getAttribute("data-brand");                 
+            
+            const cleanPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0; 
+            
+            // Skapa dynamiskt ID och titel
+            const dynamicId = `${baseId}?variant=${encodeURIComponent(variantValue)}`;
+            const dynamicTitle = `${productTitle} (${variantText})`; 
+            
+            // NYTT: Hämta den exakta URL:en till nuvarande sida och lägg till varianten
+            const productPageUrl = window.location.pathname + `?variant=${encodeURIComponent(variantValue)}`;
+
+            // Skicka med productPageUrl som ett extra argument i slutet
             if (typeof window.addItemToCart === "function") {
-                window.addItemToCart(dynamicId, dynamicTitle, brand, cleanPrice, variantImg);
+                window.addItemToCart(dynamicId, dynamicTitle, brand, cleanPrice, variantImg, productPageUrl);
             } else {
                 console.error("Cart system handler (addItemToCart) not loaded yet!");
             }

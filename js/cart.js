@@ -75,13 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========================================
 
   // Add an item or increment its quantity if it already exists
-  function addItemToCart(id, title, brand, price, img) {
+  function addItemToCart(id, title, brand, price, img, url) {
     const existingItem = cart.find(item => item.id === id);
 
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      cart.push({ id, title, brand, price, img, quantity: 1 });
+      cart.push({ id, title, brand, price, img, url, quantity: 1 });
     }
 
     saveCart();
@@ -127,7 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cart.length === 0) {
       cartItemsList.innerHTML = '<p class="empty-cart-message">Din varukorg är tom.</p>';
       if (totalSummaryElement) totalSummaryElement.textContent = '0 kr';
-      if (shippingElement) shippingElement.textContent = '39 kr';
+      if (shippingElement) shippingElement.innerHTML = `
+            61 kr
+            <a href="https://www.postnord.se" target="_blank" class="shipping-alternative-img-cart">
+                <img src="/images/icons/postnord.png" alt="PostNord" class="shipping-logo">
+            </a>
+            `;
       if (freeShippingNotice) freeShippingNotice.textContent = 'Handla för 399 kr till för att få fri frakt!';
       return;
     }
@@ -146,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (item.id) {
         // Automatically reads the clean page category path (e.g., /fiskeprylar/krokar/)
         const currentFolder = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-        productUrl = `${currentFolder}${item.id.toLowerCase()}`;
+        productUrl = `${item.url}`;
       }
 
       const itemHTML = `
