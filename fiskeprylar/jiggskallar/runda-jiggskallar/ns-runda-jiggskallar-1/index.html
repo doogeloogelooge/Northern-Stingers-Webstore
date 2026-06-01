@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/productpage.css">
   <script src="/js/script.js"></script>
   <script src="/js/productpage.js"></script>
+  <script src="/js/cart.js"></script>
   <title>Northern Stingers</title>
 </head>
 <body>
@@ -149,7 +150,9 @@
                         <input type="number" value="1" min="1" class="qty-input" aria-label="Kvantitet">
                         <button type="button" class="qty-btn plus">+</button>
                     </div>
-                    <button type="submit" class="buy-button"><i class="fa fa-shopping-cart"></i> Köp nu!</button>
+                    <button type="button" class="buy-button" id="dynamic-buy-btn" data-base-id="NS-JI-01A">
+                        <i class="fa fa-shopping-cart"></i> Köp nu!
+                    </button>
                 </div>
 
                 <ul class="stock-status">

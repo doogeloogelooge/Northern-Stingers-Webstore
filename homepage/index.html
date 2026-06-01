@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
     <title>Northern Stingers</title>
 </head>
 <body>
@@ -248,11 +249,11 @@
         </article>
 
         <section>
-            <div class="s kryt-container">
-                <div class="s kryt-del"><i class="fa fa-tag fa-lg"></i><span>Free shipping over 399 kr</span></div>
-                <div class="s kryt-del"><i class="fa fa-credit-card fa-lg"></i><span>Quick and secure payment through Swish</span></div>
-                <div class="s kryt-del"><i class="fa fa-dollar fa-lg"></i><span>Most affordable prices in Sweden</span></div>
-                <div class="s kryt-del"><i class="fa fa-cube fa-lg"></i><span>Quick delivery with PostNord</span></div>
+            <div class="skryt-container">
+                <div class="skryt-del"><i class="fa fa-tag fa-lg"></i><span>Free shipping over 399 kr</span></div>
+                <div class="skryt-del"><i class="fa fa-credit-card fa-lg"></i><span>Quick and secure payment through Swish</span></div>
+                <div class="skryt-del"><i class="fa fa-dollar fa-lg"></i><span>Most affordable prices in Sweden</span></div>
+                <div class="skryt-del"><i class="fa fa-cube fa-lg"></i><span>Quick delivery with PostNord</span></div>
             </div>
         </section>
 
@@ -265,57 +266,47 @@
             </div>
 
             <div class="cart-body">
-                <!-- items -->
-                <div class="cart-item">
-                    <img src="/images/products/beteslas.png" alt="Product" class="item-img">
-                        <div class="item-details">
-                            <a href="/fiskeprylar/smaplock/beteslas/ns-beteslas-1/"><span class="item-title">NS Beteslås 10st</span></a> 
-                            <span class="item-brand">Northern Stingers</span>
-                            <div class="item-actions">
-                            <div class="quantity-selector">
-                                <button>&minus;</button>
-                                <input type="number" value="1" min="1">
-                                <button>&plus;</button>
-                            </div>
-                            <button class="delete-btn"><i class="fa fa-trash-o"></i></button>
-                            </div>
-                        </div>
-                    <div class="item-price">125 kr</div>
-                </div>
-                
+                <div class="cart-items-list"></div>
+
                 <div class="cart-upsell">
                     <h3>Missa inte</h3>
                     
                     <div class="upsell-grid">
                         <div class="upsell-card">
                         <div class="upsell-img-wrapper">
-                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar 4-Pack"></a>
-                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/?variant=1-0"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar 4-Pack"></a>
+                            <button class="upsell-add-btn" onclick="addItemToCart('NS-KR-01B?variant=1/0', 'NS UV Krokar 4-Pack (1/0)', 'Northern Stingers', 39, '/images/products/uv-krokar.png')">
+                                <i class="fa fa-list-ul"></i>
+                            </button>
                         </div>
                         <div class="upsell-info">
-                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/"><span class="upsell-title">NS UV Krokar 4-Pack</span></a>
+                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/?variant=1/0"><span class="upsell-title">NS UV Krokar 4-Pack (1/0)</span></a>
                             <span class="upsell-price">39 kr</span>
                         </div>
                         </div>
 
                         <div class="upsell-card">
                         <div class="upsell-img-wrapper">
-                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/"><img src="/images/products/mono-tafs.png" alt="NS Mono Tafs 2-Pack"></a>
-                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/?variant=20cm"><img src="/images/products/mono-tafs.png" alt="NS Mono Tafs 2-Pack"></a>
+                            <button class="upsell-add-btn" onclick="addItemToCart('NS-TA-01A?variant=20cm', 'NS Mono Tafs 2-Pack (20cm)', 'Northern Stingers', 29, '/images/products/mono-tafs.png')">
+                                <i class="fa fa-list-ul"></i>
+                            </button>
                         </div>
                         <div class="upsell-info">
-                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/"><span class="upsell-title">NS Mono Tafs 2-Pack</span></a>
+                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/?variant=20cm"><span class="upsell-title">NS Mono Tafs 2-Pack (20cm)</span></a>
                             <span class="upsell-price">fr. 29 kr</span>
                         </div>
                         </div>
 
                         <div class="upsell-card">
                         <div class="upsell-img-wrapper">
-                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/"><img src="/images/products/standard-krokar.png" alt="NS Standard Krokar 4-Pack"></a> 
-                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/?variant=2/0"><img src="/images/products/standard-krokar.png" alt="NS Standard Krokar 4-Pack"></a> 
+                            <button class="upsell-add-btn" onclick="addItemToCart('NS-KR-01A?variant=2/0', 'NS Standard Krokar 4-Pack (2/0)', 'Northern Stingers', 29, '/images/products/standard-krokar.png')">
+                                <i class="fa fa-list-ul"></i>
+                            </button>
                         </div>
                         <div class="upsell-info">
-                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/"><span class="upsell-title">NS Standard Krokar 4-Pack</span></a>
+                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/?variant=2/0"><span class="upsell-title">NS Standard Krokar 4-Pack (2/0)</span></a>
                             <span class="upsell-price">29 kr</span>
                         </div>
                         </div>
@@ -333,7 +324,7 @@
             <div class="cart-footer">
                 <div class="summary-row">
                 <span>Frakt:</span>
-                <span id="shipping-price-cart">61 kr<a href="https://www.postnord.se" class="shipping-alternative-img-cart"><img src="/images/icons/postnord.png" alt="PostNord" class="shipping-logo"></imgsrc></a></span>
+                <span id="shipping-price-cart">61 kr<a href="https://www.postnord.se" class="shipping-alternative-img-cart"><img src="/images/icons/postnord.png" alt="PostNord" class="shipping-logo"></img></a></span>
                 </div>
                 <div class="summary-row total">
                 <span>Summa:</span>

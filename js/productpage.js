@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Grab references to the HTML elements
+    // 1. Grab all references to the HTML elements upfront
     const sizeSelect = document.getElementById("size-select");
     const mainImage = document.getElementById("product-main-img");
     const thumbImage = document.getElementById("product-thumb-img");
     const priceDisplay = document.getElementById("price-display");
+    const buyButton = document.getElementById("dynamic-buy-btn");
 
-    // Safety check: ensure required elements exist on this specific page
+    // ==========================================================================
+    // VARIANT VISUAL SWITCHING LOGIC
+    // ==========================================================================
     if (sizeSelect && mainImage && priceDisplay) {
 
         // Function to update view based on a specific <option> element
@@ -16,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const price = optionElement.getAttribute("data-price");
             const imageSrc = optionElement.getAttribute("data-image");
             const imageAlt = optionElement.getAttribute("data-alt");
-            const urlCode = optionElement.value; // 'l', 'm', or 's'
+            const urlCode = optionElement.value; // '10g' or '7g'
 
-            // 1. Update UI Elements
+            // Update UI Elements
             if (price) priceDisplay.textContent = price;
             if (imageSrc) {
                 mainImage.src = imageSrc;
@@ -30,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // 2. Keep dropdown select menu visually synced
+            // Keep dropdown select menu visually synced
             sizeSelect.value = urlCode;
 
-            // 3. Update the URL parameter seamlessly for sharing (?variant=m)
+            // Update the URL parameter seamlessly for sharing (?variant=7g)
             if (updateUrl) {
                 const newUrl = window.location.protocol + "//" + 
                                window.location.host + 
@@ -43,29 +46,58 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // ==========================================================================
-        // RUN ON PAGE LOAD
-        // ==========================================================================
+        // --- RUN ON PAGE LOAD ---
         const urlParams = new URLSearchParams(window.location.search);
-        const currentVariantParam = urlParams.get('variant')?.toLowerCase(); // e.g., 'm'
+        const currentVariantParam = urlParams.get('variant')?.toLowerCase(); 
         
         // Try to find an option matching the URL parameter
-        let targetOption = Array.from(sizeSelect.options).find(opt => opt.value === currentVariantParam);
+        let targetOption = Array.from(sizeSelect.options).find(opt => opt.value.toLowerCase() === currentVariantParam);
 
         if (targetOption) {
-            // URL matched perfectly (e.g., ?variant=m), load that variant directly
+            // URL matched perfectly (e.g., ?variant=7g), load that variant directly
             updateProductView(targetOption, false);
-        } else {
-            // No valid URL parameter? Default to the very first choice listed in your HTML (Large)
+        } else if (sizeSelect.options.length > 0) {
+            // No valid URL parameter? Default to the very first choice listed in your HTML
             updateProductView(sizeSelect.options[0], true);
         }
 
-        // ==========================================================================
-        // RUN ON USER SELECTION CHANGE
-        // ==========================================================================
+        // --- RUN ON USER SELECTION CHANGE ---
         sizeSelect.addEventListener("change", (event) => {
             const selectedOption = event.target.options[event.target.selectedIndex];
             updateProductView(selectedOption, true);
+        });
+    }
+
+    // ==========================================================================
+    // DYNAMIC ADD TO CART LOGIC
+    // ==========================================================================
+    if (buyButton && sizeSelect) {
+        buyButton.addEventListener("click", function () {
+            // 1. Get the currently active selected option tag
+            const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+            
+            // 2. Gather variant details from your option tags
+            // Inside your buyButton click listener in productpage.js:
+            const variantValue = selectedOption.value; // grabs "1/0"
+            
+            const rawPrice = selectedOption.getAttribute("data-price"); // e.g., "39 kr"
+            const variantImg = selectedOption.getAttribute("data-image"); // e.g., "/images/products/jiggskallar.png"
+            
+            // 3. Clean and parse numbers out of your text string values
+            const baseId = buyButton.getAttribute("data-base-id");
+            const cleanPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0; // Strips out "kr" safely
+            
+            // 4. Construct customized variant configurations dynamically
+            const dynamicId = `${baseId}?variant=${variantValue}`;
+            const dynamicTitle = `NS Runda Jiggskallar 4-Pack (${variantValue})`;
+            const brand = "NS";
+
+            // 5. Fire the cross-file cart handler function globally exposed by cart.js
+            if (typeof window.addItemToCart === "function") {
+                window.addItemToCart(dynamicId, dynamicTitle, brand, cleanPrice, variantImg);
+            } else {
+                console.error("Cart system handler (addItemToCart) not loaded yet!");
+            }
         });
     }
 });

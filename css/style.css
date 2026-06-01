@@ -1288,3 +1288,28 @@ p{
 .delete-btn:active {
   transform: scale(0.75);    /* Pressed down effect on click */
 }
+
+/* ==========================================
+   CART DRAW LINK RESET STYLING
+   ========================================== */
+.cart-item-link {
+  display: block;
+  text-decoration: none;
+}
+
+.cart-item-title-link {
+  text-decoration: none;
+  color: inherit; /* Inherits the original dark color from your layout rules */
+}
+
+/* Give users visual confirmation that titles are interactive links */
+.cart-item-title-link:hover .item-title {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.cart-item-link:hover .item-img {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
