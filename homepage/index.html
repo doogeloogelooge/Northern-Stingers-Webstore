@@ -10,7 +10,7 @@
 </head>
 <body>
     <header id="hero-banner">
-        <strong>Free shipping for all orders over 399kr!</strong>
+        <strong>Free shipping for all orders over 399 kr!</strong>
     </header>
     <header id="main-header">
         <a id="logo-button" href="/homepage">
@@ -23,7 +23,7 @@
         <nav id="header-nav">
             <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
             <button id="account-btn"><img src="/images/user.png" alt=""></button>
-            <button id="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
+            <button id="cart-toggle-btn" class="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
         </nav>
     </header>
     
@@ -143,7 +143,7 @@
                         <a href="/elektronik/vagar/clever-digital-scale-1">
                             <h3 class="product-title"><strong>clever</strong> Digital Scale 50kg</h3>
                         </a>
-                        <p class="product-price red-text">199kr</p>
+                        <p class="product-price red-text">199 kr</p>
                     </div>
                 </div>
 
@@ -156,7 +156,7 @@
                         <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1">
                             <h3 class="product-title"><strong>NS</strong> UV Krokar 4-pack</h3>
                         </a>
-                        <p class="product-price red-text">39kr</p>
+                        <p class="product-price red-text">39 kr</p>
                     </div>
                 </div>
 
@@ -169,7 +169,7 @@
                         <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1">
                             <h3 class="product-title"><strong>NS</strong> Standard Krokar 4-pack</h3>
                         </a>
-                        <p class="product-price red-text">29kr</p>
+                        <p class="product-price red-text">29 kr</p>
                     </div>
                 </div>
 
@@ -182,7 +182,7 @@
                         <a href="/fiskeprylar/smaplock/beteslas/ns-beteslas-1">
                             <h3 class="product-title"><strong>NS</strong> Beteslås</h3>
                         </a>
-                        <p class="product-price red-text">from. 15kr</p>
+                        <p class="product-price red-text">from. 15 kr</p>
                     </div>
                 </div>
 
@@ -195,7 +195,7 @@
                         <a href="/fiskeprylar/smaplock/lekanden/ns-lekanden-1">
                             <h3 class="product-title"><strong>NS</strong> Lekanden</h3>
                         </a>
-                        <p class="product-price red-text">from. 19kr</p>
+                        <p class="product-price red-text">from. 19 kr</p>
                     </div>
                 </div>
 
@@ -208,7 +208,7 @@
                         <a href="/fiskeprylar/smaplock/split-rings/ns-split-rings-1">
                             <h3 class="product-title"><strong>NS</strong> Split Rings</h3>
                         </a>
-                        <p class="product-price red-text">from. 17kr</p>
+                        <p class="product-price red-text">from. 17 kr</p>
                     </div>
                 </div>
 
@@ -220,7 +220,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">clever Digital Scale 50kg</h3>
-                        <p class="product-price red-text">199kr</p>
+                        <p class="product-price red-text">199 kr</p>
                     </div>
                 </div>-->
 
@@ -248,14 +248,100 @@
         </article>
 
         <section>
-            <div class="skryt-container">
-                <div class="skryt-del"><i class="fa fa-tag fa-lg"></i><span>Free shipping over 399kr</span></div>
-                <div class="skryt-del"><i class="fa fa-credit-card fa-lg"></i><span>Quick and secure payment through Swish</span></div>
-                <div class="skryt-del"><i class="fa fa-dollar fa-lg"></i><span>Most affordable prices in Sweden</span></div>
-                <div class="skryt-del"><i class="fa fa-cube fa-lg"></i><span>Quick delivery with PostNord</span></div>
+            <div class="s kryt-container">
+                <div class="s kryt-del"><i class="fa fa-tag fa-lg"></i><span>Free shipping over 399 kr</span></div>
+                <div class="s kryt-del"><i class="fa fa-credit-card fa-lg"></i><span>Quick and secure payment through Swish</span></div>
+                <div class="s kryt-del"><i class="fa fa-dollar fa-lg"></i><span>Most affordable prices in Sweden</span></div>
+                <div class="s kryt-del"><i class="fa fa-cube fa-lg"></i><span>Quick delivery with PostNord</span></div>
             </div>
         </section>
-        
+
+        <div id="cart-overlay" class="cart-overlay"></div>
+
+            <div id="cart-drawer" class="cart-drawer">
+            <div class="cart-header">
+                <button id="cart-close-btn" class="close-btn">&times;</button>
+                <h2>Din varukorg</h2>
+            </div>
+
+            <div class="cart-body">
+                <!-- items -->
+                <div class="cart-item">
+                    <img src="/images/products/beteslas.png" alt="Product" class="item-img">
+                        <div class="item-details">
+                            <a href="/fiskeprylar/smaplock/beteslas/ns-beteslas-1/"><span class="item-title">NS Beteslås 10st</span></a> 
+                            <span class="item-brand">Northern Stingers</span>
+                            <div class="item-actions">
+                            <div class="quantity-selector">
+                                <button>&minus;</button>
+                                <input type="number" value="1" min="1">
+                                <button>&plus;</button>
+                            </div>
+                            <button class="delete-btn"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                        </div>
+                    <div class="item-price">125 kr</div>
+                </div>
+                
+                <div class="cart-upsell">
+                    <h3>Missa inte</h3>
+                    
+                    <div class="upsell-grid">
+                        <div class="upsell-card">
+                        <div class="upsell-img-wrapper">
+                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar 4-Pack"></a>
+                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                        </div>
+                        <div class="upsell-info">
+                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1/"><span class="upsell-title">NS UV Krokar 4-Pack</span></a>
+                            <span class="upsell-price">39 kr</span>
+                        </div>
+                        </div>
+
+                        <div class="upsell-card">
+                        <div class="upsell-img-wrapper">
+                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/"><img src="/images/products/mono-tafs.png" alt="NS Mono Tafs 2-Pack"></a>
+                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                        </div>
+                        <div class="upsell-info">
+                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1/"><span class="upsell-title">NS Mono Tafs 2-Pack</span></a>
+                            <span class="upsell-price">fr. 29 kr</span>
+                        </div>
+                        </div>
+
+                        <div class="upsell-card">
+                        <div class="upsell-img-wrapper">
+                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/"><img src="/images/products/standard-krokar.png" alt="NS Standard Krokar 4-Pack"></a> 
+                            <button class="upsell-add-btn"><i class="fa fa-list-ul"></i></button>
+                        </div>
+                        <div class="upsell-info">
+                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1/"><span class="upsell-title">NS Standard Krokar 4-Pack</span></a>
+                            <span class="upsell-price">29 kr</span>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="upsell-controls">
+                        <button class="control-btn"><i class="fa fa-angle-left"></i></button>
+                        <button class="control-btn"><i class="fa fa-angle-right"></i></button>
+                    </div>
+
+                    <p class="free-shipping-notice">Om du handlar för ytterligare 236 kr så får du fraktfritt!</p>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="summary-row">
+                <span>Frakt:</span>
+                <span id="shipping-price-cart">61 kr<a href="https://www.postnord.se" class="shipping-alternative-img-cart"><img src="/images/icons/postnord.png" alt="PostNord" class="shipping-logo"></imgsrc></a></span>
+                </div>
+                <div class="summary-row total">
+                <span>Summa:</span>
+                <span id="total-price-cart">502 kr</span>
+                </div>
+                <button class="checkout-btn">Till kassan</button>
+            </div>
+        </div>
     </main>
     <footer>
         <article class="site-footer">
