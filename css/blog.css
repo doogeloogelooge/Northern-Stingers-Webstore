@@ -1,0 +1,371 @@
+/* Dark Navbar Styles */
+.top-nav {
+  background-color: #333333;
+  border-radius: 6px;
+  padding: 4px;
+  display: flex;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.top-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 13px;
+  display: block;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.top-nav a:hover {
+  background-color: #444444;
+}
+
+/* Base Two-Column Layout Grid */
+.page-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  gap: 40px;
+}
+
+/* Left Column Styling */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+.meta-info {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.date {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+.author-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.byline {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+}
+.divider {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 25px;
+}
+
+/* Sidebar Product Offerings */
+.product-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.product-img {
+  width: 60px;
+  height: 60px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 5px;
+}
+.product-img img{
+  height: 100%;
+  object-fit: cover;
+}
+.stars {
+  color: #ff9800;
+  font-size: 0.8rem;
+}
+.review-count {
+  color: #888;
+}
+.product-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 2px 0 5px 0;
+}
+.current-price {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.old-price {
+  color: #999;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+/* Right Main Content Styling */
+.main-content {
+  flex-grow: 1;
+  margin-bottom: 200px;
+}
+.image-gallery {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.gallery-img-wrapper {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 320px;
+}
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Article Copywriting Rules */
+.article-body h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #333333;
+  margin-bottom: 20px;
+}
+.article-body .lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 20px;
+}
+.article-body h2 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333333;
+}
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column-reverse; /* Put content first on mobile */
+    gap: 30px;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .image-gallery {
+    flex-direction: column;
+  }
+  .gallery-img-wrapper {
+    height: 220px;
+  }
+}
+
+
+/* Carousel Section Layout */
+.product-carousel-section {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.carousel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Individual Product Cards */
+.carousel-card {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Top Badge and Wishlist Row */
+.card-header {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+.badge.campaign { background-color: #e53935; }
+.badge.hot-drop { background-color: #757575; color: #fff; }
+
+.wishlist-btn {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.wishlist-btn img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Gray Image Container Box */
+.product-thumb {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.product-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Lower Tags (Discount / Nyhet) */
+.card-footer-tags {
+  margin-top: 8px;
+  display: flex;
+  gap: 5px;
+}
+.discount-tag {
+  background-color: #e53935;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.new-tag {
+  background-color: #ffffff;
+  color: #101010;
+
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Info Details */
+.card-details {
+  padding: 8px 0;
+}
+.carousel-stars {
+  color: #ffb300;
+  font-size: 0.75rem;
+}
+.carousel-stars .count { color: #888; margin-left: 2px; }
+
+.item-title {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #333;
+  margin: 4px 0;
+}
+.carousel-price {
+  font-size: 0.95rem;
+  margin: 0;
+}
+.sale-price {
+  color: #e53935;
+  font-weight: bold;
+}
+.carousel-price del {
+  color: #999;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+.regular-price {
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Navigation Controls styling */
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 15px;
+}
+.ctrl-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.ctrl-arrow:hover {
+  background-color: #f0f0f0;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 2px solid #333;
+  margin: 25px 0;
+}
+
+/* Next Section Text */
+.next-article-block h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+/* Mobile Screen Compatibility Override */
+@media (max-width: 900px) {
+  .carousel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .carousel-grid {
+    grid-template-columns: 1fr;
+  }
+}
