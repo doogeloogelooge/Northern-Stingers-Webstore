@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+h3 {
+  color: #333;
+}
+
 #main-header{
   background-color: #1f2121;
   height: 100px;
@@ -378,6 +382,13 @@ article{
   margin-top: 16px;
 }
 
+.banner-grid3{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: transparent;
+  margin-top: 16px;
+}
+
 .banner-card{
   position: relative;
   overflow: hidden;
@@ -390,7 +401,13 @@ article{
   aspect-ratio: 1 / .5;
 }
 
-.banner-card img, .banner-card2 img{
+.banner-card3 {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / .2;
+}
+
+.banner-card img, .banner-card2 img, .banner-card3 img{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -398,13 +415,13 @@ article{
   transition: 0.3s ease;
 }
 
-.banner-card img:hover, .banner-card2 img:hover{
+.banner-card img:hover, .banner-card2 img:hover, .banner-card3 img:hover{
   transform: scale(110%);
   transition: 0.3s ease;
   cursor: pointer;
 }
 
-.banner-card img:active, .banner-card2 img:active{
+.banner-card img:active, .banner-card2 img:active, .banner-card3 img:active{
   transform: scale(100%);
   transition: 0.18s ease;
 }
@@ -448,12 +465,12 @@ article{
 }
 
 .text-block:hover{
-  transform: scale(105%);
+  transform: scale(102%);
   transition: 0.3s ease;
 }
 
 .text-block:active{
-  transform: scale(95%);
+  transform: scale(98%);
   transition: 0.18s ease;
 }
 
@@ -1314,4 +1331,14 @@ p{
   opacity: 0.9;
   transform: scale(1.02);
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.normal{
+  border: none;
+  padding: 10px 12px;
+  background-color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 5px;
 }
