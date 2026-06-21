@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
   <script src="/js/script.js"></script>
   <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
@@ -104,8 +105,16 @@
             <!-- 2. MAIN CONTENT AREA -->
             <main class="main-content">
                 <header class="category-header">
-                <h1>Fiskeprylar</h1>
-                <p class="category-desc">Fiskeprylar för alla fiskeintresserade!</p>
+
+                    <div id="breadcrumbs"></div>
+                
+                    <h1 id="category-title"></h1>
+                
+                    <p
+                      id="category-description"
+                      class="category-desc"
+                    ></p>
+                
                 </header>
 
                 <!-- Filter & Sort Bar -->
@@ -119,116 +128,7 @@
                 </div>
 
                 <!-- Product Grid -->
-                <div class="product-grid">
-                <!-- Product Card 1 -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/stingers/chain-stingers/ns-chain-stinger-1"><img src="/images/products/large-stinger.png" alt="Chain Stinger"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/stingers/chain-stingers/ns-chain-stinger-1"><h3 class="product-title"><strong>NS</strong > Chain Stinger</h3></a>
-                            <p class="product-price red-text">from. 29 kr</p>
-                            
-                        </div>
-                    </div>
-                <!-- Repeat product cards -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/stingers/uv-chain-stingers/ns-uv-chain-stinger-1"><img src="/images/products/small-uv-stinger.png" alt="Chain Stinger"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/stingers/uv-chain-stingers/ns-uv-chain-stinger-1"><h3 class="product-title"><strong>NS</strong > UV Chain Stinger</h3></a>
-                            <p class="product-price red-text">from. 29 kr</p>
-                        </div>
-                    </div>
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/elektronik/vagar/clever-digital-scale-1"><img src="/images/products/digital-scale.png" alt="Digital Scale"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/elektronik/vagar/clever-digital-scale-1"><h3 class="product-title"><strong>clever</strong > Digital Scale</h3></a>
-                            <p class="product-price red-text">199 kr</p>
-                        </div>
-                    </div>
-                <!-- Repeat product cards -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1"><img src="/images/products/mono-tafs.png" alt="NS Mono tafs"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/tafsar/mono-tafsar/ns-mono-tafs-1"><h3 class="product-title"><strong>NS</strong > Mono Tafs 2-Pack</h3></a>
-                            <p class="product-price red-text">from. 29 kr</p>
-                            
-                        </div>
-                    </div>
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/smaplock/lekanden/ns-lekanden-1"><img src="/images/products/lekanden.png" alt="NS Lekanden"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/smaplock/lekanden/ns-lekanden-1"><h3 class="product-title"><strong>NS</strong > Lekanden</h3></a>
-                            <p class="product-price red-text">from. 19 kr</p>
-                        </div>
-                    </div>
-                <!-- Repeat product cards -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/smaplock/split-rings/ns-split-rings-1"><img src="/images/products/split-ring.png" alt="NS Split Rings"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/smaplock/split-rings/ns-split-rings-1"><h3 class="product-title"><strong>NS</strong > Split Rings</h3></a>
-                            <p class="product-price red-text">from. 17 kr</p>
-                        </div>
-                    </div>
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/smaplock/beteslas/ns-beteslas-1"><img src="/images/products/beteslas.png" alt="NS Beteslås"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/smaplock/beteslas/ns-beteslas-1"><h3 class="product-title"><strong>NS</strong > Beteslås</h3></a>
-                            <p class="product-price red-text">from. 15 kr</p>
-                        </div>
-                    </div>
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1"><img src="/images/products/standard-krokar.png" alt="NS Standard Krokar"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/krokar/standard-krokar/ns-standard-krokar-1"><h3 class="product-title"><strong>NS</strong > Standard Krokar 4-Pack</h3></a>
-                            <p class="product-price red-text">from. 35 kr</p>
-                        </div>
-                    </div>
-                <!-- Repeat product cards -->
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/krokar/uv-krokar/ns-uv-krokar-1"><h3 class="product-title"><strong>NS</strong > UV Krokar 4-Pack</h3></a>
-                            <p class="product-price red-text">from. 35 kr</p>
-                        </div>
-                    </div>
-                    <div class="product-card1">
-                        <div class="image-wrapper">
-                            <a href="/fiskeprylar/jiggskallar/runda-jiggskallar/ns-runda-jiggskallar-1/"><img src="/images/products/jiggskallar.png" alt="NS Jiggskallar"></a>
-                            <button class="wishlist-btn"><img src="/images/heart.png" alt=""></button>
-                        </div>
-                        <div class="product-info">
-                            <a href="/fiskeprylar/jiggskallar/runda-jiggskallar/ns-runda-jiggskallar-1/"><h3 class="product-title"><strong>NS</strong > Jiggskallar 4-Pack</h3></a>
-                            <p class="product-price red-text">from. 35 kr</p>
-                            
-                        </div>
-                    </div>
-                </div>
+                <div class="product-grid" id="products-grid"></div>
             </main>
          </div>
     </article>
@@ -272,5 +172,8 @@
         </div>
     </article>
   </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="/js/category-page.js"></script>
 </body>
 </html>

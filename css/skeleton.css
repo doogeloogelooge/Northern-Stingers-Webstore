@@ -1,0 +1,54 @@
+.skeleton-card {
+  pointer-events: none;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e5e5e5;
+  border-radius: 12px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-title {
+  width: 100%;
+  height: 18px;
+  background: #e5e5e5;
+  border-radius: 6px;
+  margin-top: 12px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-title.short {
+  width: 65%;
+}
+
+.skeleton-price {
+  width: 40%;
+  height: 18px;
+  background: #e5e5e5;
+  border-radius: 6px;
+  margin-top: 14px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+
+  0% {
+      opacity: 1;
+  }
+
+  50% {
+      opacity: 0.45;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+#breadcrumbs a.active {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
