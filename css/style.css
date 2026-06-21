@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-h3 {
+h1, h2, h3{
   color: #333;
 }
 
@@ -125,7 +125,7 @@ h3 {
   justify-content: space-evenly;
 }
 
-#header-nav button{
+#header-nav button, #header-nav a{
   background-color: #F0EDEE;
   color: #0A090C;
 
@@ -141,11 +141,11 @@ h3 {
 
   cursor: pointer;
 }
-#header-nav button:hover{
+#header-nav button:hover, #header-nav a:hover{
   background-color: #d4d8e2;
 }
 
-#header-nav button img{
+#header-nav button img, #header-nav a img{
   width: 50%;
   object-fit: cover;
 }
@@ -1341,4 +1341,44 @@ p{
   font-weight: 600;
   color: #ffffff;
   border-radius: 5px;
+}
+
+.button{
+  transition: 0.18s ease;
+  cursor: pointer;
+}
+
+.button:hover{
+  transform: scale(105%);
+}
+
+.button:active{
+  transition: 0.08s ease;
+  transform: scale(95%);
+}
+
+.clickable-card{
+  transition: 0.18s ease;
+}
+
+.clickable-card:hover{
+  transform: scale(105%);
+}
+
+.clickable-card:active{
+  transition: 0.08s ease;
+  transform: scale(95%);
+}
+
+.clickable-text{
+  transition: 0.18s ease;
+}
+
+.clickable-text:hover{
+  transform: scale(105%);
+}
+
+.clickable-text:active{
+  transition: 0.08s ease;
+  transform: scale(95%);
 }

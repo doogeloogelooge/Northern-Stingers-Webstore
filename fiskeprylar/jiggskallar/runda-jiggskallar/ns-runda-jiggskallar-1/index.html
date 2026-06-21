@@ -9,7 +9,7 @@
   <script src="/js/script.js"></script>
   <script src="/js/productpage.js"></script>
   <script src="/js/cart.js"></script>
-  <title>Northern Stingers</title>
+  <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
   <header id="hero-banner">
@@ -26,7 +26,7 @@
       <nav id="header-nav">
           <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
           <button id="account-btn"><img src="/images/user.png" alt=""></button>
-          <button id="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
+          <a href="/cart/" id="cart-btn"><img src="/images/shopping-cart.png" alt=""></a>
       </nav>
   </header>
 
@@ -92,7 +92,7 @@
             <section class="product-gallery">
                 <div class="main-image">
                     <img id="product-main-img" src="/images/products/jiggskallar.png" alt="NS Runda Jiggskallar" class="active-image">
-                    <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa fa-star-o"></i></button>
+                    <button class="wishlist-btn" aria-label="Add to wishlist"><img src="/images/heart.png" alt=""></button>
                 </div>
                 <div class="thumbnail-gallery">
                     <img id="product-thumb-img" src="/images/products/jiggskallar.png" alt="NS Runda Jiggskallar" class="active-thumb">
@@ -157,7 +157,7 @@
                             data-product-title="NS Runda Jiggskallar 4-Pack" 
                             data-brand="Northern Stingers"
                             data-url="/fiskeprylar/jiggskallar/runda-jiggskallar/ns-runda-jiggskallar-1">
-                        <i class="fa fa-shopping-cart"></i> Köp nu!
+                        <i class="fa fa-cart-plus"></i> Köp nu!
                     </button>
                 </div>
 
@@ -181,7 +181,7 @@
         <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
         <div class="footer-links-grid">
             <div class="link-column">
-                <a href="cookiepolicy.html">Cookiepolicy</a>
+                <a href="/cookiepolicy">Cookiepolicy</a>
                 <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
                 <a href="/tillgänglighetsredogorelse">Tillgänglighetsredogörelse</a>
             </div>

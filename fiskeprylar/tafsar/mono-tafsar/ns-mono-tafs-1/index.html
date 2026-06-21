@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/productpage.css">
   <script src="/js/script.js"></script>
   <script src="/js/productpage.js"></script>
-  <title>Northern Stingers</title>
+  <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
   <header id="hero-banner">
@@ -25,7 +25,7 @@
       <nav id="header-nav">
           <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
           <button id="account-btn"><img src="/images/user.png" alt=""></button>
-          <button id="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
+          <a href="/cart/" id="cart-btn"><img src="/images/shopping-cart.png" alt=""></a>
       </nav>
   </header>
 
@@ -91,7 +91,7 @@
             <section class="product-gallery">
                 <div class="main-image">
                     <img id="product-main-img" src="/images/products/mono-tafs.png" alt="NS Mono Tafs" class="active-image">
-                    <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa fa-star-o"></i></button>
+                    <button class="wishlist-btn" aria-label="Add to wishlist"><img src="/images/heart.png" alt=""></button>
                 </div>
                 <div class="thumbnail-gallery">
                     <img id="product-thumb-img" src="/images/products/mono-tafs.png" alt="NS Mono Tafs" class="active-thumb">
@@ -150,7 +150,7 @@
                         <input type="number" value="1" min="1" class="qty-input" aria-label="Kvantitet">
                         <button type="button" class="qty-btn plus">+</button>
                     </div>
-                    <button type="submit" class="buy-button"><i class="fa fa-shopping-cart"></i> Köp nu!</button>
+                    <button type="submit" class="buy-button"><i class="fa fa-cart-plus"></i> Köp nu!</button>
                 </div>
 
                 <ul class="stock-status">
@@ -173,7 +173,7 @@
         <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
         <div class="footer-links-grid">
             <div class="link-column">
-                <a href="cookiepolicy.html">Cookiepolicy</a>
+                <a href="/cookiepolicy">Cookiepolicy</a>
                 <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
                 <a href="/tillgänglighetsredogorelse">Tillgänglighetsredogörelse</a>
             </div>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/js/script.js"></script>
     <script src="/js/cart.js"></script>
-    <title>Northern Stingers</title>
+    <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
     <header id="hero-banner">
@@ -20,12 +20,12 @@
         </a>
         <div id="search-bar">
             <input type="text" placeholder="Follow your heart..."></input>
-            <button><img src="/images/search.png" alt=""></button>
+            <button class="button"><img src="/images/search.png" alt=""></button>
         </div>
         <nav id="header-nav">
-            <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
-            <button id="account-btn"><img src="/images/user.png" alt=""></button>
-            <button id="cart-toggle-btn" class="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
+            <button id="favorites-btn" class="button"><img src="/images/heart.png" alt=""></button>
+            <button id="account-btn" class="button"><img src="/images/user.png" alt=""></button>
+            <a href="/cart/" id="cart-btn" class="cart-btn button"><img src="/images/shopping-cart.png" alt=""></a>
         </nav>
     </header>
     
@@ -84,17 +84,18 @@
     </nav>
 
     <main>
-      <article>
-          <nav class="banner-grid3">
-              <div class="banner-card3">
-                  <a href="/blog/guider/tipsforcatchingmorepike"><img src="/images/pike.png" alt="Pike"></a>
-                  <span class="badge top-left">Learn more...</span>
-                  <div class="text-block bottom-left">
-                  <a href="/blog/guider/tipsforcatchingmorepike">Take a look at our tips for<br> catching more pike! &#8618;</a>
-                  </div>
-              </div>
-          </nav>
-      </article>
+        <section id="cart-header">
+            <h1><i class="fa fa-shopping-cart"></i> Din Varukorg</h1>
+        </section>
+
+        <section class="shipping-progress-container">
+            <p class="shipping-text">Du har <strong>296 kr</strong> kvar till fri frakt!</p>
+            <div class="progress-bar-bg">
+                <!-- Width represents the percentage calculated from the cart total -->
+                <div class="progress-bar-fill" style="width: 26%;"></div>
+            </div>
+        </section>
+        
         <section id="cart">
           <table width="100%">
             <thead>
@@ -134,6 +135,7 @@
               </tr>
             </tbody>
           </table>
+          
         </section>
 
         <section id="cart-add">
@@ -141,7 +143,7 @@
             <h3>Applicera En Rabattkod</h3>
             <div>
               <input type="text" placeholder="Skriv in din rabattkod">
-              <button class="normal">Applicera</button>
+              <button class="normal button">Applicera</button>
             </div>
           </div>
 
@@ -161,9 +163,21 @@
                 <td><strong>103 kr</strong></td>
               </tr>
             </table>
-            <button class="normal">Fortsätt till kassan</button>
+            <button class="normal button">Fortsätt till kassan</button> 
           </div>
         </section>
+
+        <article>
+            <nav class="banner-grid3">
+                <div class="banner-card3">
+                    <a href="/blog/guider/tipsforcatchingmorepike"><img src="/images/pike.png" alt="Pike"></a>
+                    <span class="badge top-left">Learn more...</span>
+                    <div class="text-block bottom-left">
+                    <a href="/blog/guider/tipsforcatchingmorepike">Take a look at our tips for<br> catching more pike! &#8618;</a>
+                    </div>
+                </div>
+            </nav>
+        </article>
     </main>
 
     <footer>
