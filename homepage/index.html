@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/js/script.js"></script>
     <script src="/js/cart.js"></script>
+    <script type="module" src="/js/main.js"></script>
     <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -29,6 +30,10 @@
     </header>
     
     <nav class="nav-bar">
+        <ul class="nav-links" id="nav-links"></ul>
+    </nav>
+
+    <!--<nav class="nav-bar">
         <ul class="nav-links">
 
             <li><a href="/fiskeprylar">Fishing Gear</a>
@@ -80,7 +85,7 @@
             </li>
 
         </ul>
-    </nav>
+    </nav>-->
 
     <main>
         <article>
@@ -136,12 +141,12 @@
 
                 <div class="product-card" data-category="marinelektronik">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=vag-1" class="clickable-card"><img src="/images/products/digital-scale.png" alt="digital-scale"></a>
+                        <a href="/product.html?slug=vag-1" class="clickable-card"><img src="/images/products/digital-scale.png" alt="digital-scale"></a>
                         <span class="product-badge red-badge">GOING FAST!</span>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=vag-1">
+                        <a href="/product.html?slug=vag-1">
                             <h3 class="product-title"><strong>clever</strong> Digital Scale 50kg</h3>
                         </a>
                         <p class="product-price red-text">199 kr</p>
@@ -150,11 +155,11 @@
 
                 <div class="product-card" data-category="spinnfiske">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=ns-uv-krokar-1" class="clickable-card"><img src="/images/products/uv-krokar.png" alt="uv-hooks"></a>
+                        <a href="/product.html?slug=ns-uv-krokar-1" class="clickable-card"><img src="/images/products/uv-krokar.png" alt="uv-hooks"></a>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=ns-uv-krokar-1">
+                        <a href="/product.html?slug=ns-uv-krokar-1">
                             <h3 class="product-title"><strong>NS</strong> UV Krokar 4-pack</h3>
                         </a>
                         <p class="product-price red-text">39 kr</p>
@@ -163,11 +168,11 @@
 
                 <div class="product-card" data-category="spinnfiske">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=ns-standard-krokar-1" class="clickable-card"><img src="/images/products/standard-krokar.png" alt="standard-hooks"></a>
+                        <a href="/product.html?slug=ns-standard-krokar-1" class="clickable-card"><img src="/images/products/standard-krokar.png" alt="standard-hooks"></a>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=ns-standard-krokar-1">
+                        <a href="/product.html?slug=ns-standard-krokar-1">
                             <h3 class="product-title"><strong>NS</strong> Standard Krokar 4-pack</h3>
                         </a>
                         <p class="product-price red-text">29 kr</p>
@@ -176,11 +181,11 @@
 
                 <div class="product-card" data-category="spinnfiske">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=ns-beteslas-1" class="clickable-card"><img src="/images/products/beteslas.png" alt="snaps"></a>
+                        <a href="/product.html?slug=ns-beteslas-1" class="clickable-card"><img src="/images/products/beteslas.png" alt="snaps"></a>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=ns-beteslas-1">
+                        <a href="/product.html?slug=ns-beteslas-1">
                             <h3 class="product-title"><strong>NS</strong> Beteslås</h3>
                         </a>
                         <p class="product-price red-text">from. 15 kr</p>
@@ -189,11 +194,11 @@
 
                 <div class="product-card" data-category="spinnfiske">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=ns-lekanden-1" class="clickable-card"><img src="/images/products/lekanden.png" alt="swivels"></a>
+                        <a href="/product.html?slug=ns-lekanden-1" class="clickable-card"><img src="/images/products/lekanden.png" alt="swivels"></a>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=ns-lekanden-1">
+                        <a href="/product.html?slug=ns-lekanden-1">
                             <h3 class="product-title"><strong>NS</strong> Lekanden</h3>
                         </a>
                         <p class="product-price red-text">from. 19 kr</p>
@@ -202,11 +207,11 @@
 
                 <div class="product-card" data-category="spinnfiske">
                     <div class="image-wrapper">
-                        <a href="/fiskeprylar/product.html?slug=ns-split-rings-1" class="clickable-card"><img src="/images/products/split-ring.png" alt="split-rings"></a>
+                        <a href="/product.html?slug=ns-split-rings-1" class="clickable-card"><img src="/images/products/split-ring.png" alt="split-rings"></a>
                         <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                     </div>
                     <div class="product-info">
-                        <a href="/fiskeprylar/product.html?slug=ns-split-rings-1">
+                        <a href="/product.html?slug=ns-split-rings-1">
                             <h3 class="product-title"><strong>NS</strong> Split Rings</h3>
                         </a>
                         <p class="product-price red-text">from. 17 kr</p>

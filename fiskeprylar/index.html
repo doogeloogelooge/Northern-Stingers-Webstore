@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/skeleton.css">
   <script src="/js/script.js"></script>
+  <script type="module" src="/js/main.js"></script>
   <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -28,79 +29,15 @@
         </nav>
   </header>
 
-  <nav class="nav-bar">
-      <ul class="nav-links">
-
-          <li><a href="/fiskeprylar">Fishing Gear</a>
-              <ul class="dropdown">
-                  <p>Product Range</p>
-                  <li>
-                      <a href="/fiskeprylar/stingers">Stingers</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/tafsar">Leaders</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/jiggskallar">Jig Heads</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/krokar">Hooks</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/smaplock">Småplock</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li><a href="/elektronik">Electronics</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/elektronik/vagar">Scales</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li><a href="/nyheter">News</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/nyheter/senaste">Latest</a>
-                  </li>
-                  <li>
-                      <a href="/nyheter/comingsoon">Up and Coming</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li class="deals"><a href="/rabatter">Deals</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/rabatter/pågående-rabatter">Ongoing Deals</a>
-                  </li>
-              </ul>
-          </li>
-
-      </ul>
-  </nav>
+    <nav class="nav-bar">
+        <ul class="nav-links" id="nav-links"></ul>
+    </nav>
 
   <main>
     <article>
         <div class="shop-container">
             <!-- 1. LEFT SIDEBAR -->
-            <aside class="sidebar">
-                <nav class="category-menu">
-                <div class="menu-item active">
-                    <span><a href="/fiskeprylar"><strong>Fiskeprylar</strong></a></span>
-                    <ul class="submenu">
-                    <li><a href="/fiskeprylar/stingers">Stingers</a></li>
-                    <li><a href="/fiskeprylar/tafsar">Leaders</a></li>
-                    <li><a href="/fiskeprylar/jiggskallar">Jig Heads</a></li>
-                    <li><a href="/fiskeprylar/krokar">Hooks</a></li>
-                    <li><a href="/fiskeprylar/smaplock">Småplock</a></li>
-                    </ul>
-                </div>
-                <!-- Add more menu items here -->
-                </nav>
-            </aside>
+            <aside id="category-sidebar"></aside>
 
             <!-- 2. MAIN CONTENT AREA -->
             <main class="main-content">

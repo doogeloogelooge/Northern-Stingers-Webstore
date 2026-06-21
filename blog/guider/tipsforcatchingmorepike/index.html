@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/blog.css">
     <script src="/js/script.js"></script>
+    <script type="module" src="/js/main.js"></script>
     <script src="/js/cart.js"></script>
     <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
@@ -30,57 +31,7 @@
     </header>
     
     <nav class="nav-bar">
-        <ul class="nav-links">
-
-            <li><a href="/fiskeprylar">Fishing Gear</a>
-                <ul class="dropdown">
-                    <p>Product Range</p>
-                    <li>
-                        <a href="/fiskeprylar/stingers">Stingers</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/tafsar">Leaders</a>
-                    </li>   
-                    <li>
-                        <a href="/fiskeprylar/jiggskallar">Jig Heads</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/krokar">Hooks</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/smaplock">Småplock</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="/elektronik">Electronics</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/elektronik/vagar">Scales</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="/nyheter">News</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/nyheter/senaste">Latest</a>
-                    </li>
-                    <li>
-                        <a href="/nyheter/comingsoon">Up and Coming</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="deals"><a href="/rabatter">Deals</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/rabatter/pågående-rabatter">Ongoing Deals</a>
-                    </li>
-                </ul>
-            </li>
-
-        </ul>
+        <ul class="nav-links" id="nav-links"></ul>
     </nav>
 
     <main>
@@ -120,40 +71,40 @@
                 <div class="product-list">
                     <!-- Product 1 -->
                     <div class="product-item">
-                        <a href="/fiskeprylar/product.html?slug=ns-chain-stinger-1" class="product-img clickable-card"><img src="/images/products/large-stinger.png" alt="NS Chain Stinger"></a>
+                        <a href="/product.html?slug=ns-chain-stinger-1" class="product-img clickable-card"><img src="/images/products/large-stinger.png" alt="NS Chain Stinger"></a>
                         <div class="product-info">
                             <!-- <div class="stars">★★★★★ <span class="review-count">(33)</span></div> -->
-                            <p class="product-title"><strong>NS</strong> Chain Stinger</p>
+                            <a href="/product.html?slug=ns-chain-stinger-1"><p class="product-title"><strong>NS</strong> Chain Stinger</p></a>
                             <p class="price"><span class="current-price">fr. 29 kr</span></p>
                         </div>
                     </div>
                     
                     <!-- Product 2 -->
                     <div class="product-item">
-                        <a href="/fiskeprylar/product.html?slug=vag-1" class="product-img clickable-card"><img src="/images/products/digital-scale.png" alt="clever Digital Hanging Scale"></a>
+                        <a href="/product.html?slug=vag-1" class="product-img clickable-card"><img src="/images/products/digital-scale.png" alt="clever Digital Hanging Scale"></a>
                         <div class="product-info">
                             <!-- <div class="stars">★★★★★ <span class="review-count">(3)</span></div> -->
-                            <p class="product-title"><strong>clever</strong> 50kg Digital Hanging Scale</p>
+                            <a href="/product.html?slug=vag-1"><p class="product-title"><strong>clever</strong> 50kg Digital Hanging Scale</p></a>
                             <p class="price"><span class="current-price">199 kr</span> <del class="old-price">249 kr</del></p>
                         </div>
                     </div>
 
                     <!-- Product 1 -->
                     <div class="product-item">
-                        <a href="/fiskeprylar/product.html?slug=ns-mono-tafs-1" class="product-img clickable-card"><img src="/images/products/mono-tafs.png" alt="NS Mono Tafs 2-Pack"></a>
+                        <a href="/product.html?slug=ns-mono-tafs-1" class="product-img clickable-card"><img src="/images/products/mono-tafs.png" alt="NS Mono Tafs 2-Pack"></a>
                         <div class="product-info">
                             <!-- <div class="stars">★★★★★ <span class="review-count">(33)</span></div> -->
-                            <p class="product-title"><strong>NS</strong> Mono Tafs 2-Pack</p>
+                            <a href="/product.html?slug=ns-mono-tafs-1"><p class="product-title"><strong>NS</strong> Mono Tafs 2-Pack</p></a>
                             <p class="price"><span class="current-price">fr. 29 kr</span></p>
                         </div>
                     </div>
                         
                     <!-- Product 2 -->
                     <div class="product-item">
-                        <a href="/fiskeprylar/product.html?slug=ns-uv-krokar-1" class="product-img clickable-card"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar 4-Pack"></a>
+                        <a href="/product.html?slug=ns-uv-krokar-1" class="product-img clickable-card"><img src="/images/products/uv-krokar.png" alt="NS UV Krokar 4-Pack"></a>
                         <div class="product-info">
                             <!-- <div class="stars">★★★★★ <span class="review-count">(3)</span></div> -->
-                            <p class="product-title"><strong>NS</strong> UV Krokar 4-Pack</p>
+                            <a href="/product.html?slug=ns-uv-krokar-1"><p class="product-title"><strong>NS</strong> UV Krokar 4-Pack</p></a>
                             <p class="price"><span class="current-price">39 kr</span></p>
                         </div>
                     </div>
@@ -237,13 +188,13 @@
                               <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                             </div>
                             <div class="product-thumb">
-                              <a href="/fiskeprylar/product.html?slug=ns-chain-stinger-1" class="clickable-card"><img src="/images/products/large-stinger.png" alt="Large Chain Stinger"></a>
+                              <a href="/product.html?slug=ns-chain-stinger-1" class="clickable-card"><img src="/images/products/large-stinger.png" alt="Large Chain Stinger"></a>
                             </div>
                             <div class="card-footer-tags">
                               <!-- <span class="discount-tag">-30%</span> -->
                             </div>
                             <div class="card-details">
-                                <a href="/fiskeprylar/product.html?slug=ns-chain-stinger-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> Chain Stinger</h4></a>
+                                <a href="/product.html?slug=ns-chain-stinger-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> Chain Stinger</h4></a>
                               <p class="carousel-price"><span class="sale-price">fr. 29 kr</span></p>
                             </div>
                           </div>
@@ -255,13 +206,13 @@
                               <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                             </div>
                             <div class="product-thumb">
-                                <a href="/fiskeprylar/product.html?slug=vag-1" class="clickable-card"><img src="/images/products/digital-scale.png" alt="clever Digital Scale"></a>
+                                <a href="/product.html?slug=vag-1" class="clickable-card"><img src="/images/products/digital-scale.png" alt="clever Digital Scale"></a>
                             </div>
                             <div class="card-footer-tags">
                               <!-- <span class="discount-tag">-30%</span> -->
                             </div>
                             <div class="card-details">
-                                <a href="/fiskeprylar/product.html?slug=vag-1" class="clickable-text"><h4 class="item-title"><strong>clever</strong> 50kg Digital Hanging Scale</h4></a>
+                                <a href="/product.html?slug=vag-1" class="clickable-text"><h4 class="item-title"><strong>clever</strong> 50kg Digital Hanging Scale</h4></a>
                               <p class="carousel-price"><span class="sale-price">199 kr</span> <del>249 kr</del></p>
                             </div>
                           </div>
@@ -273,13 +224,13 @@
                               <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                             </div>
                             <div class="product-thumb">
-                                <a href="/fiskeprylar/product.html?slug=ns-mono-tafs-1" class="clickable-card"><img src="/images/products/mono-tafs.png" alt="Mono Tafsar 2-Pack"></a>
+                                <a href="/product.html?slug=ns-mono-tafs-1" class="clickable-card"><img src="/images/products/mono-tafs.png" alt="Mono Tafsar 2-Pack"></a>
                             </div>
                             <div class="card-footer-tags">
                               <!-- <span class="discount-tag">-30%</span> -->
                             </div>
                             <div class="card-details">
-                                <a href="/fiskeprylar/product.html?slug=ns-mono-tafs-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> Mono Tafs 2-Pack</h4></a>
+                                <a href="/product.html?slug=ns-mono-tafs-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> Mono Tafs 2-Pack</h4></a>
                               <p class="carousel-price"><span class="sale-price">fr. 29 kr</span></p>
                             </div>
                           </div>
@@ -291,13 +242,13 @@
                               <button class="wishlist-btn button"><img src="/images/heart.png" alt=""></button>
                             </div>
                             <div class="product-thumb">
-                                <a href="/fiskeprylar/product.html?slug=ns-uv-krokar-1" class="clickable-card"><img src="/images/products/uv-krokar.png" alt="UV Krokar 4-Pack"></a>
+                                <a href="/product.html?slug=ns-uv-krokar-1" class="clickable-card"><img src="/images/products/uv-krokar.png" alt="UV Krokar 4-Pack"></a>
                             </div>
                             <div class="card-footer-tags">
                               <!--<span class="new-tag">Nyhet</span>-->
                             </div>
                             <div class="card-details">
-                              <a href="/fiskeprylar/product.html?slug=ns-uv-krokar-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> UV Krokar 4-Pack</h4></a>
+                              <a href="/product.html?slug=ns-uv-krokar-1" class="clickable-text"><h4 class="item-title"><strong>NS</strong> UV Krokar 4-Pack</h4></a>
                               <p class="carousel-price"><span class="regular-price">39 kr</span></p>
                             </div>
                           </div>
@@ -408,5 +359,6 @@
             </div>
         </article>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>

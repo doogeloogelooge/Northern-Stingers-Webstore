@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/blogs.css">
     <script src="/js/script.js"></script>
     <script src="/js/cart.js"></script>
+    <script type="module" src="/js/main.js"></script>
     <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -30,57 +31,7 @@
     </header>
     
     <nav class="nav-bar">
-        <ul class="nav-links">
-
-            <li><a href="/fiskeprylar">Fishing Gear</a>
-                <ul class="dropdown">
-                    <p>Product Range</p>
-                    <li>
-                        <a href="/fiskeprylar/stingers">Stingers</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/tafsar">Leaders</a>
-                    </li>   
-                    <li>
-                        <a href="/fiskeprylar/jiggskallar">Jig Heads</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/krokar">Hooks</a>
-                    </li>
-                    <li>
-                        <a href="/fiskeprylar/smaplock">Småplock</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="/elektronik">Electronics</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/elektronik/vagar">Scales</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="/nyheter">News</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/nyheter/senaste">Latest</a>
-                    </li>
-                    <li>
-                        <a href="/nyheter/comingsoon">Up and Coming</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="deals"><a href="/rabatter">Deals</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="/rabatter/pågående-rabatter">Ongoing Deals</a>
-                    </li>
-                </ul>
-            </li>
-
-        </ul>
+        <ul class="nav-links" id="nav-links"></ul>
     </nav>
 
     <main>
@@ -150,5 +101,6 @@
             </div>
         </article>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>

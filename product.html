@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/productpage.css">
   <script src="/js/script.js"></script>
   <script src="/js/cart.js"></script>
+  <script type="module" src="/js/main.js"></script>
   <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -29,59 +30,9 @@
       </nav>
   </header>
 
-  <nav class="nav-bar">
-      <ul class="nav-links">
-
-          <li><a href="/fiskeprylar">Fishing Gear</a>
-              <ul class="dropdown">
-                  <p>Product Range</p>
-                  <li>
-                      <a href="/fiskeprylar/stingers">Stingers</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/tafsar">Leaders</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/jiggskallar">Jig Heads</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/krokar">Hooks</a>
-                  </li>
-                  <li>
-                      <a href="/fiskeprylar/smaplock">Småplock</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li><a href="/elektronik">Electronics</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/elektronik/vagar">Scales</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li><a href="/nyheter">News</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/nyheter/senaste">Latest</a>
-                  </li>
-                  <li>
-                      <a href="/nyheter/comingsoon">Up and Coming</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li class="deals"><a href="/rabatter">Deals</a>
-              <ul class="dropdown">
-                  <li>
-                      <a href="/rabatter/pågående-rabatter">Ongoing Deals</a>
-                  </li>
-              </ul>
-          </li>
-
-      </ul>
-  </nav>
+    <nav class="nav-bar">
+        <ul class="nav-links" id="nav-links"></ul>
+    </nav>
 
   <main>
     <div class="product-page-scope">
@@ -118,11 +69,11 @@
                   <div id="addons-container"></div>
                     <!--<p class="section-title">Tillval:</p>
                     <div class="addon-card">
-                        <a href="/fiskeprylar/product.html?slug=ns-mono-tafs-1?variant=30cm">
+                        <a href="/product.html?slug=ns-mono-tafs-1?variant=30cm">
                             <img src="/images/products/mono-tafs.png" alt="NS Mono Tafs" class="addon-img">
                         </a>
                         <div class="addon-info">
-                            <a href="/fiskeprylar/product.html?slug=ns-mono-tafs-1?variant=30cm">
+                            <a href="/product.html?slug=ns-mono-tafs-1?variant=30cm">
                                 <span class="addon-name">NS Mono Tafs 2-Pack 30cm</span>
                             </a>
                             <span class="addon-price"></span>
@@ -147,7 +98,7 @@
                             data-base-id="NS-JI-01A"
                             data-product-title="NS Runda Jiggskallar 4-Pack" 
                             data-brand="Northern Stingers"
-                            data-url="/fiskeprylar/product.html?slug=ns-runda-jiggskallar-1">
+                            data-url="/product.html?slug=ns-runda-jiggskallar-1">
                         <i class="fa fa-cart-plus"></i> Köp nu!
                     </button>
                 </div>

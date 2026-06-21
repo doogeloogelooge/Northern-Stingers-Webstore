@@ -152,7 +152,7 @@ function renderProducts(products) {
 
         <div class="image-wrapper">
 
-          <a href="/product-page.html?slug=${product.slug}">
+          <a href="/product.html?slug=${product.slug}">
 
             <img
               src="${firstVariant?.image_url || ''}"
@@ -174,7 +174,7 @@ function renderProducts(products) {
 
         <div class="product-info">
 
-          <a href="/product-page.html?slug=${product.slug}">
+          <a href="/product.html?slug=${product.slug}">
 
             <h3 class="product-title">
 
