@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <script src="/js/script.js"></script>
+  <script src="/js/cart.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <title>Önskelista - Northern Stingers</title>
+</head>
+<body>
+  <header id="hero-banner">
+    <strong>Free shipping for all orders over 399 kr!</strong>
+  </header>
+  
+  <header id="main-header">
+    <a id="logo-button" href="/homepage">
+      <img id="logo-button-img" src="/images/logo.png" alt="logo">
+    </a>
+    <div id="search-bar">
+      <input type="text" placeholder="Follow your heart...">
+      <button><img src="/images/search.png" alt=""></button>
+    </div>
+    <nav id="header-nav">
+      <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
+      <button id="account-btn"><img src="/images/user.png" alt=""></button>
+      <a href="/cart/" id="cart-btn"><img src="/images/shopping-cart.png" alt=""></a>
+    </nav>
+  </header>
+
+  <nav class="nav-bar">
+    <ul class="nav-links" id="nav-links"></ul>
+  </nav>
+
+  <main class="search-page-wrapper">
+    <div class="search-container">
+      <div class="search-content-block">
+        <header class="category-header">
+          <h1>Din Önskelista</h1>
+          <p style="color: #666; margin-top: -10px; margin-bottom: 30px;">Här sparas dina favoritartiklar så länge du vill.</p>
+        </header>
+
+        <div class="product-grid" id="wishlist-grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/wishlist.js"></script>
+</body>
+</html>

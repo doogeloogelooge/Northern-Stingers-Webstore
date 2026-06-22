@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/js/script.js"></script>
     <script src="/js/cart.js"></script>
-    <script type="module" src="/js/main.js"></script>
-    <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <title>Varukorg - Northern Stingers</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
+    <header id="hero-banner-red">
+      <strong>SUMMER 10! 10% off all products!</strong>
+    </header>
     <header id="hero-banner">
         <strong>Free shipping for all orders over 399 kr!</strong>
     </header>
+    
     <header id="main-header">
         <a id="logo-button" href="/homepage">
             <img id="logo-button-img" src="/images/logo.png" alt="logo">
         </a>
         <div id="search-bar">
-            <input type="text" placeholder="Follow your heart..."></input>
-            <button class="button"><img src="/images/search.png" alt=""></button>
+            <input type="text" placeholder="Follow your heart...">
+            <button><img src="/images/search.png" alt=""></button>
         </div>
         <nav id="header-nav">
-            <button id="favorites-btn" class="button"><img src="/images/heart.png" alt=""></button>
-            <button id="account-btn" class="button"><img src="/images/user.png" alt=""></button>
-            <a href="/cart/" id="cart-btn" class="cart-btn button"><img src="/images/shopping-cart.png" alt=""></a>
+            <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
+            <button id="account-btn"><img src="/images/user.png" alt=""></button>
+            <a href="/cart/" id="cart-toggle-btn" class="cart-btn active"><img src="/images/shopping-cart.png" alt=""></a>
         </nav>
     </header>
     
@@ -34,141 +37,85 @@
         <ul class="nav-links" id="nav-links"></ul>
     </nav>
 
-    <main>
-        <section id="cart-header">
-            <h1><i class="fa fa-shopping-cart"></i> Din Varukorg</h1>
-        </section>
-
-        <section class="shipping-progress-container">
-            <p class="shipping-text">Du har <strong>296 kr</strong> kvar till fri frakt!</p>
-            <div class="progress-bar-bg">
-                <!-- Width represents the percentage calculated from the cart total -->
-                <div class="progress-bar-fill" style="width: 26%;"></div>
-            </div>
-        </section>
+    <main class="cart-page-wrapper" style="max-width: 1200px; margin: 40px auto; margin-bottom: 200px; padding: 0 20px;">
+        <h1 style="margin-bottom: 20px; font-size: 2rem;">Din varukorg</h1>
         
-        <section id="cart">
-          <table width="100%">
-            <thead>
-              <tr>
-                <td>Ta Bort</td>
-                <td>Bild</td>
-                <td>Produkt</td>
-                <td>Pris</td>
-                <td>Kvantitet</td>
-                <td>Delsumma</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href=""><i class="fa fa-times-circle-o"></i></a></td>
-                <td><img src="/images/products/large-stinger.png" alt=""></td>
-                <td><strong>NS</strong> Large Chain Stinger</td>
-                <td>39 kr</td>
-                <td><input type="number" value="1"></td>
-                <td>39 kr</td>
-              </tr>
-              <tr>
-                <td><a href=""><i class="fa fa-times-circle-o"></i></a></td>
-                <td><img src="/images/products/mono-tafs.png" alt=""></td>
-                <td><strong>NS</strong> Mono Tafs 2-Pack (20cm)</td>
-                <td>29 kr</td>
-                <td><input type="number" value="1"></td>
-                <td>29 kr</td>
-              </tr>
-              <tr>
-                <td><a href=""><i class="fa fa-times-circle-o"></i></a></td>
-                <td><img src="/images/products/small-uv-stinger.png" alt=""></td>
-                <td><strong>NS</strong> Small UV Chain Stinger</td>
-                <td>35 kr</td>
-                <td><input type="number" value="1"></td>
-                <td>35 kr</td>
-              </tr>
-            </tbody>
-          </table>
-          
-        </section>
+        <div id="shipping-tracker-banner" style="background: #f4f4f4; padding: 15px; border-radius: 6px; margin-bottom: 30px; border-left: 4px solid #000; font-weight: 500;">
+            Laddar fraktstatus...
+        </div>
 
-        <section id="cart-add">
-          <div id="coupon">
-            <h3>Applicera En Rabattkod</h3>
-            <div>
-              <input type="text" placeholder="Skriv in din rabattkod">
-              <button class="normal button">Applicera</button>
-            </div>
-          </div>
-
-          <div id="subtotal">
-            <h3>Totala Summa</h3>
-            <table>
-              <tr>
-                <td>Summa</td>
-                <td>103 kr</td>
-              </tr>
-              <tr>
-                <td>Frakt</td>
-                <td>61 kr</td>
-              </tr>
-              <tr>
-                <td><strong>Totala Summa</strong></td>
-                <td><strong>103 kr</strong></td>
-              </tr>
-            </table>
-            <button class="normal button">Fortsätt till kassan</button> 
-          </div>
-        </section>
-
-        <article>
-            <nav class="banner-grid3">
-                <div class="banner-card3">
-                    <a href="/blog/guider/tipsforcatchingmorepike"><img src="/images/pike.png" alt="Pike"></a>
-                    <span class="badge top-left">Learn more...</span>
-                    <div class="text-block bottom-left">
-                    <a href="/blog/guider/tipsforcatchingmorepike">Take a look at our tips for<br> catching more pike! &#8618;</a>
-                    </div>
+        <div class="cart-split-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+            
+            <div class="cart-items-list" id="cart-items-container" style="flex: 2; min-width: 300px;">
                 </div>
-            </nav>
-        </article>
+
+            <div class="cart-summary-sidebar" style="flex: 1; min-width: 300px; background: #fafafa; padding: 25px; border-radius: 8px; height: max-content; border: 1px solid #eaeaea;">
+                <h3 style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Ordersammanställning</h3>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                    <span>Produkter:</span>
+                    <span id="summary-subtotal">0 kr</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <span>Frakt:</span>
+                    <span id="summary-shipping">Över 399 kr gratis</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; border-top: 2px solid #000; padding-top: 15px; margin-bottom: 25px;">
+                    <span>Totalt att betala:</span>
+                    <span id="summary-total" class="red-text">0 kr</span>
+                </div>
+
+                <a href="/checkout.html" class="checkout-proceed-btn" style="text-decoration: none; display: block; width: 100%;">
+                  <button id="checkout-swish-btn" type="button" style="width: 100%; background: #12b50a; color: #ffffff; border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="/images/swish2.png" alt="Swish" style="height: 24px;"> Betala med Swish
+                  </button>
+                </a>
+            </div>
+
+        </div>  
     </main>
-
     <footer>
-        <article class="site-footer">
-            <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
-            <div class="footer-links-grid">
-                <div class="link-column">
-                    <a href="/cookiepolicy/">Cookiepolicy</a>
-                    <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
-                    <a href="/tillganglighetsredogorelse">Tillgänglighetsredogörelse</a>
-                </div>
-                <div class="link-column">
-                    <a href="/jobba-hos-oss">Jobba hos oss</a>
-                    <a href="/om-oss">Om oss</a>
-                </div>
-                <div class="link-column">
-                    <a href="/kop-och-leveransvillkor">Köp- och leveransvillkor</a>
-                    <a href="/privacy-policy">Privacy policy</a>
-                </div>
-                <div class="link-column">
-                    <a href="/kundservice">Kundservice</a>
-                </div>
-                <div class="info-column">
-                    <h4>Northern Stingers</h4>
-                    <p>Butik: Coming soon...</p>
-                    <p><strong>Sveriges mest prisvärda fiskebutik</strong><br><a href="#" style="text-decoration: underline;">www.northernstingers.store</a></p>
-                    <!-- <p>Kampanj: <a href="#" style="text-decoration: underline;">Black Friday rea på fiske</a></p> -->
-                </div>
-            </div>
-            <div class="social-row">
-                <a href="https:/www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
-                <a href="https:/www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
-                <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
-            </div>
-
-            <div class="payment-options">
-                <a href="https:/www.swish.nu" class="payment-option"><img src="/images/swish.png" alt="swish"></a>
-            </div>
-        </article>
+      <article class="site-footer">
+          <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
+          <div class="footer-links-grid">
+              <div class="link-column">
+                  <a href="/cookiepolicy">Cookiepolicy</a>
+                  <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
+                  <a href="/tillgänglighetsredogorelse">Tillgänglighetsredogörelse</a>
+              </div>
+              <div class="link-column">
+                  <a href="/jobba-hos-oss">Jobba hos oss</a>
+                  <a href="/om-oss">Om oss</a>
+              </div>
+              <div class="link-column">
+                  <a href="/kop-och-leveransvillkor">Köp- och leveransvillkor</a>
+                  <a href="/privacy-policy">Privacy policy</a>
+              </div>
+              <div class="link-column">
+                  <a href="/kundservice">Kundservice</a>
+              </div>
+              <div class="info-column">
+                  <h4>Northern Stingers</h4>
+                  <p>Butik: Coming soon...</p>
+                  <p><strong>Sveriges mest prisvärda fiskebutik</strong><br><a href="#" style="text-decoration: underline;">www.northernstingers.store</a></p>
+                  <!-- <p>Kampanj: <a href="#" style="text-decoration: underline;">Black Friday rea på fiske</a></p> -->
+              </div>
+          </div>
+          <div class="social-row">
+              <a href="https:/www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
+              <a href="https:/www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
+              <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
+          </div>
+  
+          <div class="payment-options">
+              <a href="https:/www.swish.nu" class="payment-option"><img src="/images/swish.png" alt="swish"></a>
+          </div>
+      </article>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/cart-view.js"></script>
 </body>
 </html>

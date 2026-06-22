@@ -38,6 +38,18 @@ h1, h2, h3{
   justify-content: center;
 }
 
+#hero-banner-red{
+  background-color: #e30c0c;
+  color: #F0EDEE;
+  height: 30px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
 #logo-button{
   height: 75px;
   width: 75px;
@@ -738,7 +750,7 @@ p{
 /* 5-Column Grid Configuration */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Exactly 5 equal width columns */
+  grid-template-columns: repeat(4, 1fr); /* Exactly 5 equal width columns */
   gap: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -1381,4 +1393,820 @@ p{
 .clickable-text:active{
   transition: 0.08s ease;
   transform: scale(95%);
+}
+
+/* Layout Wrapper */
+.shop-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 1. Left Sidebar Styling */
+#category-sidebar {
+  flex: 0 0 250px; /* Fixed width of 250px */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+#category-sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.sidebar-link:hover, 
+.sidebar-link.active {
+  color: #181818; /* Matches your red-text accent */
+}
+
+/* 2. Main Content Area */
+.main-content {
+  flex: 1; /* Takes up the remaining space */
+}
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+  .shop-container {
+    flex-direction: column; /* Stack sidebar on top of products on mobile */
+  }
+  
+  #category-sidebar {
+    flex: 1;
+    width: 100%;
+  }
+}
+
+
+/* Filter Bar Row Container */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5; /* Light gray bar background */
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Match the exact button/select look from screenshot */
+.filter-btn, 
+.filter-select {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-select:hover {
+  border-color: #888888;
+}
+
+/* Visual active indicator when Campaign filtering is switched on */
+.filter-btn.active-filter {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Product Count Styling (Right Aligned) */
+.product-count {
+  font-size: 0.95rem;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* Container to contextualize the absolute position panel */
+.custom-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* The primary action selector style */
+.dropdown-trigger-btn {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Container to contextualize the absolute position panel */
+.custom-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* The primary action selector style */
+.dropdown-trigger-btn {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toggle layout class for when it is active */
+.custom-dropdown-container.menu-open .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* 1. The Popup Menu Box (HIDDEN BY DEFAULT) */
+.dropdown-menu-panel {
+  display: none; /* 🌟 Keep this completely hidden initially */
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: #f5f5f5; 
+  border-radius: 8px;
+  padding: 15px;
+  width: 320px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 2. ONLY convert to display flex when the parent has the .menu-open class */
+.custom-dropdown-container.menu-open .dropdown-menu-panel {
+  display: flex !important;
+}
+
+/* Individual Pill styling */
+.campaign-pill {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 20px; 
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Active Highlight */
+.campaign-pill.active-pill {
+  background-color: #2b2b2b; 
+  color: #ffffff !important;
+  border-color: #2b2b2b;
+}
+
+/* Container to contextualize the absolute position panel */
+.custom-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Base button appearance */
+.dropdown-trigger-btn {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.dropdown-trigger-btn:hover {
+  border-color: #888888;
+}
+
+/* Arrow rotation indicator */
+.custom-dropdown-container.menu-open .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* Popover Panel Box (Hidden by Default) */
+.dropdown-menu-panel {
+  display: none; 
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: #f5f5f5; /* Light gray panel background */
+  border-radius: 8px;
+  padding: 15px;
+  width: 320px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Reveal style trigger rule */
+.custom-dropdown-container.menu-open .dropdown-menu-panel {
+  display: flex !important;
+}
+
+/* Pill Styling for both panels */
+.sort-pill,
+.campaign-pill {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 20px; 
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sort-pill:hover,
+.campaign-pill:hover {
+  border-color: #999;
+}
+
+/* Active Highlight Style */
+.sort-pill.active-pill,
+.campaign-pill.active-pill {
+  background-color: #2b2b2b; /* Dark charcoal */
+  color: #ffffff !important;
+  border-color: #2b2b2b;
+}
+
+/* Ensure the image container defines the boundaries for absolute child positions */
+.image-wrapper, .main-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Badge Layout Container Row */
+.product-badge-row {
+  position: absolute;
+  bottom: 8px; /* Slightly tighter placement to the corner edge */
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Reduced gap between labels */
+  z-index: 10;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.72rem; /* Reduced font size from 0.8rem for a cleaner look */
+}
+
+/* Red Campaign Name Label */
+.badge-campaign-name {
+  background-color: #e53935;
+  color: #ffffff;
+  padding: 4px 8px; /* Reduced from 6px 12px to make the pill sleek */
+  border-radius: 4px; /* Slightly cleaner corner radius for smaller text */
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+/* Dark Counter Percentage Pill */
+.badge-percentage {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 4px 6px; /* Reduced from 6px 10px to scale down nicely */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+/* Container layout positioning block */
+.category-header-block {
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Big crisp bold category title */
+.category-main-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #333;
+  margin: 14px 0 14px 0;
+  letter-spacing: -0.5px;
+}
+
+/* Perfectly tracking subtitle description string */
+.category-sub-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2b2b2b; /* Smooth slate-black styling */
+  margin: 0;
+  font-weight: 400;
+  max-width: 100%; /* Allows paragraph strings to sweep cleanly across the view width */
+}
+
+/* Container wrapper to anchor text elements */
+.description-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Default state showing the full description string */
+.category-sub-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2b2b2b;
+  margin: 0;
+  font-weight: 400;
+  max-height: 1000px; /* High boundary layout variable */
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Strict clamp mode restricting text frame boundaries to exactly 3 lines */
+.category-sub-desc.truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: calc(1.6em * 2); /* Matches your line-height dimension */
+  overflow: hidden;
+}
+
+/* Custom layout toggle button adjustments for Font Awesome icons */
+.toggle-desc-btn {
+  background: transparent;
+  border: none;
+  color: #0d82b1; /* Matches your active brand blue color option */
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.toggle-desc-btn:hover {
+  text-decoration: underline;
+  color: #2c666e;
+}
+
+/* Ensure the wrapper is the positioning context */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the panel by default */
+.dropdown-wrapper .dropdown-menu-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  min-width: 200px;
+}
+
+/* 🔥 THIS IS CRUCIAL: Show the panel when menu-open class is active */
+.dropdown-wrapper.menu-open .dropdown-menu-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+/* Container for the entire filter section */
+
+
+/* Grouping the filter buttons together */
+.filters {
+  display: flex;
+  gap: 12px;
+}
+
+/* Style for each individual dropdown wrapper */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The custom dropdown buttons */
+.dropdown-toggle {
+  background: #ffffff;
+  color: #2b2b2b;
+  border: 1px solid #dcdcdc;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+  background: #f3f3f3;
+  border-color: #b5b5b5;
+}
+
+/* The actual hidden panel menu layout */
+.dropdown-menu-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+  min-width: 210px;
+  overflow: hidden;
+}
+
+/* Show container cleanly when toggled active */
+.dropdown-wrapper.menu-open .dropdown-menu-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+}
+
+/* Option selections within the panels */
+.sort-pill, .campaign-pill {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+}
+
+.sort-pill:hover, .campaign-pill:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Highlighted state for selected filter options */
+.active-pill {
+  background: #f0f7ff;
+  color: #0d82b1;
+  font-weight: 600;
+}
+
+/* Product counter string on the right side */
+.product-count {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 500;
+}
+
+
+/* Ensure the page content has comfortable top padding and centers perfectly */
+.search-page-wrapper {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  width: 100%;
+}
+
+/* Master search container constraint layout */
+.search-container {
+  max-width: 1200px;
+  margin: 0 auto !important; /* Force layout centering block mechanics */
+  padding: 0 40px !important; /* Add generous side spacing so elements do not touch screen edges */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make sure the filter bar scales horizontally inside the master container framework */
+.search-container .filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Clear the width for the bottom results section */
+.search-content-block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Enforce structured header layouts */
+.search-content-block .category-header h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #111;
+}
+
+/* Re-establish your exact functional product grid architecture layout constraints */
+.search-container #products-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 30px !important;
+  width: 100% !important;
+}
+
+/* Container for the entire filter section */
+.search-container .filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure the wrapper sets a proper positioning layer for the absolute menu */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The actual menu panel dropdown */
+.dropdown-menu-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px); /* Drop down clearly below the button */
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12); /* Rich, floating shadow */
+  min-width: 220px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* When active, show menu clean and unclipped */
+.dropdown-wrapper.menu-open .dropdown-menu-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+}
+
+.image-wrapper {
+  position: relative; /* Crucial anchor context for the button */
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.1);
+  background-color: #fcfcfc;
+}
+
+.wishlist-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+}
+
+/* Nav Badge indicator rules */
+#favorites-btn {
+  position: relative;
+}
+.nav-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  min-width: 12px;
+  text-align: center;
+}
+
+/* --- HORIZONTAL SCROLLABLE CARD ROW --- */
+.product-grid.scrollable-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  gap: 20px;
+  padding: 10px 4px 20px 4px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Butter-smooth iOS momentum scrolling */
+}
+
+/* Force elements to stay at fixed desktop sizing bounds without shrinking away */
+.product-grid.scrollable-row .product-card,
+.product-grid.scrollable-row .product-card1 {
+  flex: 0 0 calc(25% - 15px); /* Perfectly spaces out exactly 4 items on desktop wide screens */
+  min-width: 250px; /* Prevents text crowding on small tablet/mobile sizes */
+}
+
+/* Hide ugly scrollbars on Chrome, Safari and Opera */
+.product-grid.scrollable-row::-webkit-scrollbar {
+  height: 6px;
+}
+.product-grid.scrollable-row::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.product-grid.scrollable-row::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+.product-grid.scrollable-row::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* --- VARUKORG CART PAGE LAYOUTS --- */
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.cart-item-row img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.cart-qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.remove-cart-item {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.remove-cart-item:hover {
+  color: #e53935;
+}
+
+/* --- NAVIGATION HEADER BADGES --- */
+#header-nav button, #header-nav a {
+  position: relative;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  z-index: 10;
+}
+
+/* Modern Unified Quantity Selector */
+.quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  height: 36px; /* Explicit uniform height */
+}
+
+.quantity-selector .qty-btn {
+  width: 36px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.quantity-selector .qty-btn:hover {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.quantity-selector .qty-btn:active {
+  background-color: #eeeeee;
+}
+
+.quantity-selector .qty-input {
+  width: 45px;
+  height: 100%;
+  text-align: center;
+  border: none;
+  background-color: #fff; /* Removes default input gray background */
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+}
+
+/* Chrome, Safari, Edge, Opera: Hide default spin arrows if input type is number */
+.quantity-selector .qty-input::-webkit-outer-spin-button,
+.quantity-selector .qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.quantity-selector .qty-input[type=number] {
+  -moz-appearance: textfield;
 }

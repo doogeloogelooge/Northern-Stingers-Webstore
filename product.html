@@ -6,15 +6,19 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/productpage.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
   <script src="/js/script.js"></script>
   <script src="/js/cart.js"></script>
   <script type="module" src="/js/main.js"></script>
   <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
-  <header id="hero-banner">
-      <strong>Free shipping for all orders over 399 kr!</strong>
-  </header>
+  <header id="hero-banner-red">
+        <strong>SUMMER 10! 10% off all products!</strong>
+    </header>
+    <header id="hero-banner">
+        <strong>Free shipping for all orders over 399 kr!</strong>
+    </header>
   <header id="main-header">
       <a id="logo-button" href="/homepage">
             <img id="logo-button-img" src="/images/logo.png" alt="logo">
@@ -40,10 +44,12 @@
         <div class="product-container">
             
             <section class="product-gallery">
-                <div class="main-image">
-                    <img id="product-main-img" class="active-image">
-                    <button class="wishlist-btn" aria-label="Add to wishlist"><img src="/images/heart.png" alt=""></button>
-                </div>
+                <div class="main-image-wrapper">
+                    <div class="main-image">
+                        <img id="product-main-img" class="active-image">
+                        <button class="wishlist-btn" id="product-page-wishlist-btn" aria-label="Add to wishlist"><img src="/images/heart.png" alt=""></button>
+                    </div>
+                    </div>
                 <div class="thumbnail-gallery">
                     <img id="product-thumb-img" class="active-thumb">
                 </div>
@@ -67,19 +73,6 @@
                 <div class="addons-section">
                   <p class="section-title">Tillval:</p>
                   <div id="addons-container"></div>
-                    <!--<p class="section-title">Tillval:</p>
-                    <div class="addon-card">
-                        <a href="/product.html?slug=ns-mono-tafs-1?variant=30cm">
-                            <img src="/images/products/mono-tafs.png" alt="NS Mono Tafs" class="addon-img">
-                        </a>
-                        <div class="addon-info">
-                            <a href="/product.html?slug=ns-mono-tafs-1?variant=30cm">
-                                <span class="addon-name">NS Mono Tafs 2-Pack 30cm</span>
-                            </a>
-                            <span class="addon-price"></span>
-                        </div>
-                        <input type="checkbox" id="addon-checkbox" class="addon-checkbox">
-                    </div>-->
                 </div>
 
                 <div class="product-price">
@@ -94,18 +87,14 @@
                     </div>
                     <button type="button" 
                             id="dynamic-buy-btn"
-                            class="buy-button" 
-                            data-base-id="NS-JI-01A"
-                            data-product-title="NS Runda Jiggskallar 4-Pack" 
-                            data-brand="Northern Stingers"
-                            data-url="/product.html?slug=ns-runda-jiggskallar-1">
+                            class="buy-button">
                         <i class="fa fa-cart-plus"></i> Köp nu!
                     </button>
                 </div>
 
                 <ul class="stock-status">
                     <li class="in-stock">
-                      <span id="stock-count"></span> i lager
+                        <i class="fa fa-archive"></i><span> </span><span id="stock-count"></span> i lager
                     </li>
                     <li class="store-availability"><i class="fa fa-times"></i> Finns inte i butik</li>
                     <li class="shipping-speed"><i class="fa fa-truck"></i> Omgående leverans</li>

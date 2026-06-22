@@ -45,23 +45,52 @@
 
                     <div id="breadcrumbs"></div>
                 
-                    <h1 id="category-title"></h1>
-                
-                    <p
-                      id="category-description"
-                      class="category-desc"
-                    ></p>
+                    <div class="category-header-block">
+                        <h1 id="category-title" class="category-main-title">Laddar...</h1>
+                        
+                        <div class="description-wrapper">
+                            <p id="category-description" class="category-sub-desc"></p>
+                            <button id="toggle-desc-btn" class="toggle-desc-btn" style="display: none;">
+                                Visa mer <i class="fa fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
                 
                 </header>
 
                 <!-- Filter & Sort Bar -->
                 <div class="filter-bar">
-                <div class="filters">
-                    <button class="filter-btn">Sortera efter</button>
-                    <button class="filter-btn">Kampanjer</button>
-                    <button class="filter-btn">Pris</button>
-                </div>
-                <span class="product-count">10 Produkter</span>
+                    <div class="filters">
+                      
+                      <div class="custom-dropdown-container" id="sort-dropdown-wrapper">
+                        <button type="button" id="sort-dropdown-toggle" class="dropdown-trigger-btn">
+                          Sortera efter (Standard) <i class="fa fa-chevron-down"></i>
+                        </button>
+                        
+                        <div id="sort-menu-panel" class="dropdown-menu-panel">
+                          <button type="button" class="sort-pill active-pill" data-sort="default">Standard</button>
+                          <button type="button" class="sort-pill" data-sort="price-asc">Pris: Lågt till högt</button>
+                          <button type="button" class="sort-pill" data-sort="price-desc">Pris: Högt till lågt</button>
+                          <button type="button" class="sort-pill" data-sort="title-asc">Namn: A-Ö</button>
+                        </div>
+                      </div>
+                      
+                      <div class="custom-dropdown-container" id="campaign-dropdown-wrapper">
+                        <button type="button" id="campaign-dropdown-toggle" class="dropdown-trigger-btn">
+                          Kampanjer <i class="fa fa-chevron-down"></i>
+                        </button>
+                        
+                        <div id="campaign-menu-panel" class="dropdown-menu-panel">
+                          <button type="button" class="campaign-pill active-pill" data-campaign="all">Visa alla</button>
+                          <button type="button" class="campaign-pill" data-campaign="Midsummer Madness!">Midsummer Madness!</button>
+                          <button type="button" class="campaign-pill" data-campaign="Outlet">Outlet</button>
+                          <button type="button" class="campaign-pill" data-campaign="SUPERDEAL!">SUPERDEAL!</button>
+                          <button type="button" class="campaign-pill" data-campaign="Sommar Deals">Sommar Deals</button>
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <span class="product-count" id="product-counter">? Produkter</span>
                 </div>
 
                 <!-- Product Grid -->

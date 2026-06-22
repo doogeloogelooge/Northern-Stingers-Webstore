@@ -340,3 +340,43 @@
 .variant-dropdown {
     margin-top: 6px;
 }   
+
+/* Sets structural constraints so position: absolute sticks inside the image area */
+.main-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Badge Layout Container Row alignment */
+.product-badge-row {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Red Campaign pill label */
+.badge-campaign-name {
+  background-color: #e53935;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Dark Counter Percentage badge element */
+.badge-percentage {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kassa - Northern Stingers</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+
+  <header id="hero-banner-red">
+    <strong>SUMMER 10! 10% off all products!</strong>
+  </header>
+  <header id="hero-banner">
+      <strong>Free shipping for all orders over 399 kr!</strong>
+  </header>
+  
+  <header id="main-header">
+      <a id="logo-button" href="/homepage">
+          <img id="logo-button-img" src="/images/logo.png" alt="logo">
+      </a>
+      <div id="search-bar">
+          <input type="text" placeholder="Follow your heart...">
+          <button><img src="/images/search.png" alt=""></button>
+      </div>
+      <nav id="header-nav">
+          <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
+          <button id="account-btn"><img src="/images/user.png" alt=""></button>
+          <a href="/cart/" id="cart-toggle-btn" class="cart-btn active"><img src="/images/shopping-cart.png" alt=""></a>
+      </nav>
+  </header>
+  
+  <nav class="nav-bar">
+      <ul class="nav-links" id="nav-links"></ul>
+  </nav>
+
+  <div class="checkout-container">
+    <div class="checkout-form-section">
+      <h2>Säker utcheckning</h2>
+      
+      <form id="checkout-form">
+        <h3>1. Leveransadress</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstname">Förnamn *</label>
+            <input type="text" id="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Efternamn *</label>
+            <input type="text" id="lastname" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-postadress *</label>
+          <input type="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Gatuadress *</label>
+          <input type="text" id="address" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="zip">Postnummer *</label>
+            <input type="text" id="zip" pattern="[0-9\s]{5,6}" placeholder="123 45" required>
+          </div>
+          <div class="form-group">
+            <label for="city">Ort *</label>
+            <input type="text" id="city" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefonnummer *</label>
+          <input type="tel" id="phone" required>
+        </div>
+
+        <button type="submit" class="submit-order-btn">
+          <i class="fa fa-credit-card"></i> Slutför Köp
+        </button>
+      </form>
+    </div>
+
+    <div class="checkout-summary-section">
+      <h3>Din order</h3>
+      <div id="checkout-items-preview">
+        </div>
+      
+      <div class="summary-totals-box">
+        <div class="total-row">
+          <span>Delsumma:</span>
+          <span id="checkout-subtotal">0 kr</span>
+        </div>
+        <div class="total-row">
+          <span>Frakt:</span>
+          <span id="checkout-shipping">49 kr</span>
+        </div>
+        <hr>
+        <div class="total-row final-total">
+          <span>Totalt att betala:</span>
+          <span id="checkout-final-total">0 kr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <article class="site-footer">
+        <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
+        <div class="footer-links-grid">
+            <div class="link-column">
+                <a href="/cookiepolicy">Cookiepolicy</a>
+                <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
+                <a href="/tillgänglighetsredogorelse">Tillgänglighetsredogörelse</a>
+            </div>
+            <div class="link-column">
+                <a href="/jobba-hos-oss">Jobba hos oss</a>
+                <a href="/om-oss">Om oss</a>
+            </div>
+            <div class="link-column">
+                <a href="/kop-och-leveransvillkor">Köp- och leveransvillkor</a>
+                <a href="/privacy-policy">Privacy policy</a>
+            </div>
+            <div class="link-column">
+                <a href="/kundservice">Kundservice</a>
+            </div>
+            <div class="info-column">
+                <h4>Northern Stingers</h4>
+                <p>Butik: Coming soon...</p>
+                <p><strong>Sveriges mest prisvärda fiskebutik</strong><br><a href="#" style="text-decoration: underline;">www.northernstingers.store</a></p>
+                <!-- <p>Kampanj: <a href="#" style="text-decoration: underline;">Black Friday rea på fiske</a></p> -->
+            </div>
+        </div>
+        <div class="social-row">
+            <a href="https:/www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
+            <a href="https:/www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
+            <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
+        </div>
+
+        <div class="payment-options">
+            <a href="https:/www.swish.nu" class="payment-option"><img src="/images/swish.png" alt="swish"></a>
+        </div>
+    </article>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script> <script src="/js/cart.js"></script> <script src="/js/checkout.js"></script>
+</body>
+</html>

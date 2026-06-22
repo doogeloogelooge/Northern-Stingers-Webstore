@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="/css/skeleton.css">
   <script src="/js/script.js"></script>
+  <script src="/js/cart.js"></script>
   <script type="module" src="/js/main.js"></script>
-  <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+  <title>Sökresultat - Northern Stingers</title>
 </head>
 <body>
   <header id="hero-banner">
-      <strong>Free shipping for all orders over 399 kr!</strong>
+    <strong>Free shipping for all orders over 399 kr!</strong>
   </header>
   <header id="main-header">
         <a id="logo-button" href="/homepage">
@@ -29,60 +30,55 @@
         </nav>
   </header>
 
-    <nav class="nav-bar">
-        <ul class="nav-links" id="nav-links"></ul>
-    </nav>
-
-  <main>
-    <article>
-        <div class="shop-container">
-            <!-- 1. LEFT SIDEBAR -->
-            <aside class="sidebar">
-                <nav class="category-menu">
-                <div class="menu-item active">
-                    <span><a href="/fiskeprylar"><strong>Fiskeprylar</strong></a></span>
-                    <ul class="submenu">
-                    <li><a href="/fiskeprylar/stingers">Stingers</a></li>
-                    <li><a href="/fiskeprylar/tafsar">Leaders</a></li>
-                    <li><a href="/fiskeprylar/jiggskallar">Jig Heads</a></li>
-                    <li><a href="/fiskeprylar/krokar">Hooks</a></li>
-                    <li><a href="/fiskeprylar/smaplock">Småplock</a></li>
-                    </ul>
-                </div>
-                <!-- Add more menu items here -->
-                </nav>
-            </aside>
-
-            <!-- 2. MAIN CONTENT AREA -->
-            <main class="main-content">
-                <header class="category-header">
-
-                    <div id="breadcrumbs"></div>
-                
-                    <h1 id="category-title"></h1>
-                
-                    <p
-                      id="category-description"
-                      class="category-desc"
-                    ></p>
-                
-                </header>
-
-                <!-- Filter & Sort Bar -->
-                <div class="filter-bar">
-                <div class="filters">
-                    <button class="filter-btn">Sortera efter</button>
-                    <button class="filter-btn">Kampanjer</button>
-                    <button class="filter-btn">Pris</button>
-                </div>
-                <span class="product-count">10 Produkter</span>
-                </div>
-
-                <!-- Product Grid -->
-                <div class="product-grid" id="products-grid"></div>
-            </main>
-         </div>
-    </article>
+  <nav class="nav-bar">
+    <ul class="nav-links" id="nav-links"></ul>
+  </nav>
+  <main class="search-page-wrapper">
+    <div class="search-container">
+      
+      <div class="filter-bar">
+        <div class="filters">
+          
+          <div class="custom-dropdown-container" id="sort-dropdown-wrapper">
+            <button type="button" id="sort-dropdown-toggle" class="dropdown-trigger-btn">
+              Sortera efter (Standard) <i class="fa fa-chevron-down"></i>
+            </button>
+            
+            <div id="sort-menu-panel" class="dropdown-menu-panel">
+              <button type="button" class="sort-pill active-pill" data-sort="default">Standard</button>
+              <button type="button" class="sort-pill" data-sort="price-asc">Pris: Lågt till högt</button>
+              <button type="button" class="sort-pill" data-sort="price-desc">Pris: Högt till lågt</button>
+              <button type="button" class="sort-pill" data-sort="title-asc">Namn: A-Ö</button>
+            </div>
+          </div>
+          
+          <div class="custom-dropdown-container" id="campaign-dropdown-wrapper">
+            <button type="button" id="campaign-dropdown-toggle" class="dropdown-trigger-btn">
+              Kampanjer <i class="fa fa-chevron-down"></i>
+            </button>
+            
+            <div id="campaign-menu-panel" class="dropdown-menu-panel">
+              <button type="button" class="campaign-pill active-pill" data-campaign="all">Visa alla</button>
+              <button type="button" class="campaign-pill" data-campaign="Midsummer Madness!">Midsummer Madness!</button>
+              <button type="button" class="campaign-pill" data-campaign="Outlet">Outlet</button>
+              <button type="button" class="campaign-pill" data-campaign="SUPERDEAL!">SUPERDEAL!</button>
+              <button type="button" class="campaign-pill" data-campaign="Sommar Deals">Sommar Deals</button>
+            </div>
+          </div>
+      
+        </div>
+        <span class="product-count" id="product-counter">? Produkter</span>
+    </div>
+  
+      <div class="search-content-block">
+        <header class="category-header">
+          <h1>Sökresultat för: <span id="search-term-title">""</span></h1>
+        </header>
+  
+        <div class="product-grid" id="products-grid"></div>
+      </div>
+      
+    </div>
   </main>
 
   <footer>
@@ -123,8 +119,9 @@
         </div>
     </article>
   </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="/js/category-page.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/search.js"></script>
 </body>
 </html>
