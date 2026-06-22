@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header id="hero-banner-red">
+        <strong>SUMMER 10! 10% off all products!</strong>
+    </header>
+    <header id="hero-banner">
+        <strong>Free shipping for all orders over 399 kr!</strong>
+    </header>
+    
+    <header id="main-header">
+        <a id="logo-button" href="/homepage">
+            <img id="logo-button-img" src="/images/logo.png" alt="logo">
+        </a>
+        <div id="search-bar">
+            <input type="text" placeholder="Follow your heart..."></input>
+            <button><img src="/images/search.png" alt=""></button>
+        </div>
+        <nav id="header-nav">
+            <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
+            <button id="account-btn"><img src="/images/user.png" alt=""></button>
+            <a href="/cart/" id="cart-toggle-btn" class="cart-btn"><img src="/images/shopping-cart.png" alt=""></a>
+        </nav>
+    </header>
+    
+    <nav class="nav-bar">
+        <ul class="nav-links" id="nav-links"></ul>
+    </nav>
+
+    <!--<nav class="nav-bar">
+        <ul class="nav-links">
+
+            <li><a href="/fiskeprylar">Fishing Gear</a>
+                <ul class="dropdown">
+                    <p>Product Range</p>
+                    <li>
+                        <a href="/fiskeprylar/stingers">Stingers</a>
+                    </li>
+                    <li>
+                        <a href="/fiskeprylar/tafsar">Leaders</a>
+                    </li>   
+                    <li>
+                        <a href="/fiskeprylar/jiggskallar">Jig Heads</a>
+                    </li>
+                    <li>
+                        <a href="/fiskeprylar/krokar">Hooks</a>
+                    </li>
+                    <li>
+                        <a href="/fiskeprylar/smaplock">Småplock</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="/elektronik">Electronics</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="/elektronik/vagar">Scales</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="/nyheter">News</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="/nyheter/senaste">Latest</a>
+                    </li>
+                    <li>
+                        <a href="/nyheter/comingsoon">Up and Coming</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="deals"><a href="/rabatter">Deals</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="/rabatter/pågående-rabatter">Ongoing Deals</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>-->
+
+    <main>
+        <article>
+            <nav class="banner-grid">
+                <div class="banner-card">
+                    <a href="/fiskeprylar/tafsar/mono-tafsar/"><img src="/images/perch.png" alt="Mono Leaders"></a>
+                    <span class="badge top-left">NS Tackle</span>
+                    <div class="text-block bottom-left">
+                      <a href="/fiskeprylar/tafsar/mono-tafsar/">Catch more perch with <br>our mono leaders! <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="banner-card">
+                    <a href="/fiskeprylar/stingers/uv-chain-stingers/"><img src="/images/uv-stinger-banner.png" alt="UV Stingers"></a>
+                    <span class="badge top-left">Galet pris!</span>
+                    <div class="text-block bottom-left">
+                      <a href="/fiskeprylar/stingers/uv-chain-stingers/">NS UV Stingers - the most affordable on the market <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="banner-card">
+                    <a href="/fiskeprylar/stingers/chain-stingers/"><img src="/images/stinger-banner.png" alt="Restock Chain Stingers"></a>
+                    <span class="badge top-left">This just in</span>
+                    <div class="text-block bottom-left">
+                      <a href="/fiskeprylar/stingers/chain-stingers/">Huge Restock on<br>Chain stingers <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>            
+            </nav>
+        </article>
+
+        <article>
+            <h2 class="popular-categories-title">Popular categories</h2>
+            <nav class="popular-categories">
+                <a href="/fiskeprylar/stingers" class="category-card"><img src="/images/stinger-illu.png" alt="Stingers"><span>Stingers</span></a>
+                <a href="/fiskeprylar/tafsar" class="category-card"><img src="/images/leader-illu.png" alt="Leaders"><span>Leaders</span></a>
+                <a href="/fiskeprylar/jiggskallar" class="category-card"><img src="/images/jighead-illu.png" alt="Jig Heads"><span>Jig Heads</span></a>
+                <a href="/fiskeprylar/krokar" class="category-card"><img src="/images/hook-illu.png" alt="Hooks"><span>Hooks</span></a>
+            </nav>
+        </article>
+            
+        <article class="new-section">
+            <div class="section-header">
+                <h2 class="popular-categories-title">Featured</h2>
+                <div class="tabs-container">
+                    <button class="tab active" data-target="spinnfiske">Spin Fishing</button>
+                    <button class="tab" data-target="flugfiske">Fly Fishing</button>
+                    <button class="tab" data-target="marinelektronik">Marine Electronics</button>
+                </div>
+            </div>
+        
+            <div class="product-grid scrollable-row" id="home-new-in-stock-grid">
+                </div>
+        </article>
+
+        <article>
+            <nav class="banner-grid2">
+                <div class="banner-card2">
+                    <a href="#"><img src="/images/fiskeset.png" alt="Fishing set"></a>
+                    <span class="badge top-left">New!</span>
+                    <div class="text-block bottom-left">
+                    <a href="#">Start fishing with our <br>new complete fishing sets! &#8618;</a>
+                    </div>
+                </div>
+                <div class="banner-card2">
+                    <a href="/blog/guider/tipsforcatchingmorepike"><img src="/images/pike.png" alt="Pike"></a>
+                    <span class="badge top-left">Learn more...</span>
+                    <div class="text-block bottom-left">
+                    <a href="/blog/guider/tipsforcatchingmorepike">Take a look at our tips for<br> catching more pike! &#8618;</a>
+                    </div>
+                </div>
+            </nav>
+        </article>
+
+        <section>
+            <div class="skryt-container">
+                <div class="skryt-del"><i class="fa fa-tag fa-lg"></i><span>Free shipping over 399 kr</span></div>
+                <div class="skryt-del"><i class="fa fa-credit-card fa-lg"></i><span>Quick and secure payment through Swish</span></div>
+                <div class="skryt-del"><i class="fa fa-dollar fa-lg"></i><span>Most affordable prices in Sweden</span></div>
+                <div class="skryt-del"><i class="fa fa fa-send fa-lg"></i><span>Quick delivery with PostNord</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <article class="site-footer">
+            <div class="footer-logo"><img src="/images/logo.png" alt="Northern Stingers Logo"></div>
+            <div class="footer-links-grid">
+                <div class="link-column">
+                    <a href="/cookiepolicy/">Cookiepolicy</a>
+                    <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
+                    <a href="/tillganglighetsredogorelse">Tillgänglighetsredogörelse</a>
+                </div>
+                <div class="link-column">
+                    <a href="/jobba-hos-oss">Jobba hos oss</a>
+                    <a href="/om-oss">Om oss</a>
+                </div>
+                <div class="link-column">
+                    <a href="/kop-och-leveransvillkor">Köp- och leveransvillkor</a>
+                    <a href="/privacy-policy">Privacy policy</a>
+                </div>
+                <div class="link-column">
+                    <a href="/kundservice">Kundservice</a>
+                </div>
+                <div class="info-column">
+                    <h4>Northern Stingers</h4>
+                    <p>Butik: Coming soon...</p>
+                    <p><strong>Sveriges mest prisvärda fiskebutik</strong><br><a href="#" style="text-decoration: underline;">www.northernstingers.store</a></p>
+                    <!-- <p>Kampanj: <a href="#" style="text-decoration: underline;">Black Friday rea på fiske</a></p> -->
+                </div>
+            </div>
+            <div class="social-row">
+                <a href="https:/www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
+                <a href="https:/www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
+                <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
+            </div>
+
+            <div class="payment-options">
+                <a href="https:/www.swish.nu" class="payment-option"><img src="/images/swish.png" alt="swish"></a>
+            </div>
+        </article>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/home.js"></script> 
+</body>
+</html>
