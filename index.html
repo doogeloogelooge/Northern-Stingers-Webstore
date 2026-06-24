@@ -5,37 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/js/script.js"></script>
-    <script src="/js/cart.js"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <script src="/js/home.js" defer></script>
     <script type="module" src="/js/main.js"></script>
     <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
-    <header id="hero-banner-red">
-        <strong>SUMMER 10! 10% off all products!</strong>
-    </header>
-    <header id="hero-banner">
-        <strong>Free shipping for all orders over 399 kr!</strong>
-    </header>
+    <div class="announcement-stack">
+        <div id="promo-notice-prime">SUMMER 10! 10% off all products!</div>
+        <div id="logistic-notice-sub">Free shipping for all orders over 399 kr! | <i class="fa fa-exclamation-triangle"></i> Earliest shipping for new orders 7 July. <i class="fa fa-exclamation-triangle"></i></div>
+    </div>
     
-    <header id="main-header">
-        <a id="logo-button" href="/homepage">
-            <img id="logo-button-img" src="/images/logo.png" alt="logo">
-        </a>
-        <div id="search-bar">
-            <input type="text" placeholder="Follow your heart..."></input>
-            <button><img src="/images/search.png" alt=""></button>
+    <header id="boutique-navigation-hub">
+        <div class="brand-anchorage">
+            <a id="brand-link" href="/homepage">
+                <img id="brand-logo-media" src="/images/logo.png" alt="Logo">
+            </a>
         </div>
-        <nav id="header-nav">
-            <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
-            <button id="account-btn"><img src="/images/user.png" alt=""></button>
-            <a href="/cart/" id="cart-toggle-btn" class="cart-btn"><img src="/images/shopping-cart.png" alt=""></a>
+    
+        <nav class="client-utility-bar">
+            <button id="client-profile-trigger" class="utility-action-node">
+                <img src="/images/user.png" alt="Konto">
+            </button>
+            
+            <button id="search-btn" class="utility-action-node">
+                <img src="/images/search.png" alt="Sök">
+            </button>
+
+            <button id="favorites-btn" class="utility-action-node">
+                <img src="/images/heart.png" alt="">
+            </button>
+            
+            <a href="/cart/" id="bag-status-gate" class="utility-action-node">
+                <img src="/images/shopping-cart.png" alt="Varukorg">
+            </a>
         </nav>
-    </header>
+
+        <div id="search-bar" class="search-overlay-drawer">
+            <div class="search-inner-container">
+                <input type="text" id="search-input" placeholder="Search">
+                <button id="search-submit-action">
+                    <img src="/images/search.png" alt="Sök">
+                </button>
+            </div>
+        </div>
+    </header> 
     
     <nav class="nav-bar">
         <ul class="nav-links" id="nav-links"></ul>
     </nav>
+
+    
+
 
     <!--<nav class="nav-bar">
         <ul class="nav-links">
@@ -134,7 +156,7 @@
                 <div class="tabs-container">
                     <button class="tab active" data-target="spinnfiske">Spin Fishing</button>
                     <button class="tab" data-target="flugfiske">Fly Fishing</button>
-                    <button class="tab" data-target="marinelektronik">Marine Electronics</button>
+                    <button class="tab" data-target="marinelektronik">Electronics</button>
                 </div>
             </div>
         
@@ -145,10 +167,10 @@
         <article>
             <nav class="banner-grid2">
                 <div class="banner-card2">
-                    <a href="#"><img src="/images/fiskeset.png" alt="Fishing set"></a>
+                    <a href="#"><img src="/images/think.png" alt="Fishing set"></a>
                     <span class="badge top-left">New!</span>
                     <div class="text-block bottom-left">
-                    <a href="#">Start fishing with our <br>new complete fishing sets! &#8618;</a>
+                    <a href="#">Hur är det så billigt? &#8618;</a>
                     </div>
                 </div>
                 <div class="banner-card2">
@@ -199,7 +221,7 @@
             </div>
             <div class="social-row">
                 <a href="https://www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
-                <a href="https://www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
+                <a href="https://www.tiktok.com/@northernstingers" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
                 <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
             </div>
 
@@ -209,7 +231,47 @@
         </article>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/supabase.js"></script>
-    <script src="/js/home.js"></script> 
+    <script src="/js/supabase.js"></script 
+    <div id="cookie-banner" class="cookie-banner hidden">
+        <div class="cookie-content">
+            <p>Vi använder cookies för att förbättra din upplevelse och se till att din varukorg fungerar som den ska. Genom att fortsätta godkänner du detta.</p>
+            <div class="cookie-buttons">
+            <button id="accept-cookies-btn" class="cookie-btn accept-btn">Acceptera</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies-btn');
+
+        // 1. Kolla om användaren redan har accepterat cookies tidigare
+        const hasAccepted = localStorage.getItem('cookies_accepted');
+
+        if (!hasAccepted) {
+            // Visa bannern om de inte har accepterat än
+            cookieBanner.classList.remove('hidden');
+        }
+
+        // 2. När användaren klickar på "Acceptera"
+        acceptBtn.addEventListener('click', () => {
+            // Spara valet i localStorage så bannern inte visas igen
+            localStorage.setItem('cookies_accepted', 'true');
+            
+            // Göm bannern
+            cookieBanner.classList.add('hidden');
+        });
+        });
+    </script>
+
+    <div id="sweden-only-popup" class="cookie-banner hidden" style="z-index: 10000;">
+        <div class="cookie-content">
+            <h3 style="color: #fff; margin-top: 0;">🇸🇪 Shipping to Sweden Only</h3>
+            <p>We notice that you are visiting from outside of Sweden. Please note that we currently only sell and ship products within Sweden.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept-btn" onclick="confirmSwedenResident()">I live in Sweden / Ship to Sweden</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

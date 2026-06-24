@@ -288,37 +288,48 @@ async function getAllChildCategoryIds(categoryId) {
 }
 
 function renderSidebar(currentCategory, allCategories, currentSlugs) {
-  const sidebar = document.getElementById('category-sidebar');
-  if (!sidebar) return;
+  const sidebarContainer = document.getElementById('category-sidebar');
+  const mobileContainer = document.getElementById('mobile-subcategory-container'); // Ny behållare för mobil placering
   
-  const subcategories = allCategories.filter(c => c.parent_id === currentCategory.id);
-  const categoriesToRender = subcategories.length > 0 
-    ? subcategories 
-    : allCategories.filter(c => c.parent_id === currentCategory.parent_id);
+  // Hitta underkategorier
+  const subCategories = allCategories.filter(cat => cat.parent_id === currentCategory.id);
 
-  const titleText = subcategories.length > 0 ? "Underkategorier" : "Kategorier";
+  if (subCategories.length === 0) {
+    if (sidebarContainer) sidebarContainer.innerHTML = '';
+    if (mobileContainer) mobileContainer.innerHTML = '';
+    return;
+  }
 
-  sidebar.innerHTML = `
-    <h2>${titleText}</h2>
-    <ul class="sidebar-list">
-      ${categoriesToRender.map(cat => {
-        const isChild = cat.parent_id === currentCategory.id;
-        const urlPath = isChild 
-          ? `/${currentSlugs.join('/')}/${cat.slug}`
-          : `/${currentSlugs.slice(0, -1).concat(cat.slug).join('/')}`;
+  // 1. Desktop-vyn (Visas bara på desktop via CSS)
+  if (sidebarContainer) {
+    let desktopHtml = `<div class="desktop-subcategories"><h3>Underkategorier</h3><ul>`;
+    subCategories.forEach(sub => {
+      const url = `/${currentSlugs.join('/')}/${sub.slug}`;
+      desktopHtml += `<li><a href="${url}">${sub.name}</a></li>`;
+    });
+    desktopHtml += `</ul></div>`;
+    sidebarContainer.innerHTML = desktopHtml;
+  }
 
-        const isActive = cat.id === currentCategory.id ? 'active' : '';
-
-        return `
-          <li class="sidebar-item">
-            <a href="${urlPath}" class="sidebar-link ${isActive}">
-              ${cat.name}
-            </a>
-          </li>
-        `;
-      }).join('')}
-    </ul>
-  `;
+  // 2. Mobil-vyn (Kompakt dropdown som placeras under beskrivningen)
+  if (mobileContainer) {
+    let mobileHtml = `
+      <div class="mobile-subcategories-dropdown">
+        <select id="subcategory-select" onchange="window.location.href=this.value;">
+          <option value="" disabled selected>Välj underkategori...</option>
+    `;
+    
+    subCategories.forEach(sub => {
+      const url = `/${currentSlugs.join('/')}/${sub.slug}`;
+      mobileHtml += `<option value="${url}">${sub.name}</option>`;
+    });
+    
+    mobileHtml += `
+        </select>
+      </div>
+    `;
+    mobileContainer.innerHTML = mobileHtml;
+  }
 }
 
 // 🌟 FIX: Dynamic Campaign Dropdown Renderer from Supabase

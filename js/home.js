@@ -167,4 +167,36 @@ function renderHomeCategory(categoryTag) {
   }).join('');
 }
 
+document.addEventListener('DOMContentLoaded', async () => {
+  const swedenPopup = document.getElementById('sweden-only-popup');
+  
+  // 1. Kolla om de redan har bekräftat att de bor/handlar i Sverige
+  const isSwedenResident = localStorage.getItem('sweden_resident_confirmed');
+
+  if (!isSwedenResident) {
+      // 2. Kolla upp besökarens land via IP-API
+      try {
+          const response = await fetch('https://ipapi.co/json/');
+          const geoData = await response.json();
+          
+          // Om landskoden INTE är "SE" (Sverige), visa popupen
+          if (geoData.country_code == 'SE') {
+              swedenPopup.classList.remove('hidden');
+          }
+      } catch (error) {
+          console.log("Kunde inte verifiera land via IP, blockerar ej:", error);
+      }
+  }
+});
+
+// Funktion som körs när man klickar sig vidare
+function confirmSwedenResident() {
+  // Spara i localStorage så de slipper se rutan på nästa sida eller vid reload
+  localStorage.setItem('sweden_resident_confirmed', 'true');
+  
+  // Göm popupen
+  const swedenPopup = document.getElementById('sweden-only-popup');
+  swedenPopup.classList.add('hidden');
+}
+
 document.addEventListener('DOMContentLoaded', initHomepage);

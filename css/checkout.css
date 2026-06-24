@@ -99,3 +99,32 @@
 
 .submit-order-btn:hover { background: #43a047; }
 .submit-order-btn:disabled { background: #ccc; cursor: not-allowed; } 
+
+/* ==========================================
+   MOBILANPASSNING FÖR KASSAN (SKÄRMAR < 768px)
+   ========================================== */
+   @media (max-width: 768px) {
+  
+    /* 1. Minska marginaler och mellanrum så att allt känns kompakt */
+    .checkout-container {
+      margin: 15px auto;
+      gap: 20px;
+    }
+  
+    /* 2. Krymp paddingen så att formulären får mer plats i bredd på telefonen */
+    .checkout-form-section, 
+    .checkout-summary-section {
+      padding: 20px 15px; 
+    }
+  
+    /* 3. Ta bort "sticky" på sammanfattningen så den inte flyter runt konstigt när allt staplas */
+    .checkout-summary-section {
+      position: static !important;
+    }
+  
+    /* 4. Tvinga fält som Förnamn/Efternamn att staplas på höjden istället för bredden */
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 12px; /* Lite mindre glapp mellan fälten */
+    }
+  }

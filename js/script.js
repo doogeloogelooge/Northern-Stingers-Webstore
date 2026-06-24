@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartDrawer = document.getElementById('cart-drawer');
   const cartOverlay = document.getElementById('cart-overlay');
 
-  // Functions are placed inside to keep everything nicely encapsulated
   function openCart() {
     if (cartDrawer && cartOverlay) {
       cartDrawer.classList.add('open');
@@ -55,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Safety checks added in case these elements don't exist on all pages
   if (cartToggleBtn) cartToggleBtn.addEventListener('click', openCart);
   if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
   if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
@@ -63,91 +61,53 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function initializeGlobalSearch() {
-  const searchBar = document.querySelector('#search-bar input');
-  const searchBtn = document.querySelector('#search-bar button');
+  const searchTrigger = document.getElementById('search-btn'); 
+  const searchBar = document.getElementById('search-bar');     
+  const searchInput = document.getElementById('search-input');   
+  const searchSubmit = document.getElementById('search-submit-action'); 
 
-  if (!searchBar || !searchBtn) return;
+  if (!searchBar) return;
 
-  // Function to handle redirection
+  if (searchTrigger) {
+    searchTrigger.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      searchBar.classList.toggle('active');
+      
+      if (searchBar.classList.contains('active') && searchInput) {
+        searchInput.focus();
+      }
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!searchBar.contains(e.target) && e.target !== searchTrigger) {
+      searchBar.classList.remove('active');
+    }
+  });
+
   function executeSearch() {
-    const query = searchBar.value.trim();
+    if (!searchInput) return;
+    const query = searchInput.value.trim();
     if (query.length > 0) {
-      // Redirect to search page with query parameter
       window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
     }
   }
 
-  // Listen for Enter key press
-  searchBar.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      executeSearch();
-    }
-  });
-
-  // Listen for button click
-  searchBtn.addEventListener('click', executeSearch);
-}
-
-// Global Wishlist Management Utilities
-function getWishlist() {
-  return JSON.parse(localStorage.getItem('ns_wishlist')) || [];
-}
-
-function toggleWishlist(productSlug, heartImgElement) {
-  let wishlist = getWishlist();
-  
-  if (wishlist.includes(productSlug)) {
-    // Remove from wishlist
-    wishlist = wishlist.filter(slug => slug !== productSlug);
-    heartImgElement.src = '/images/heart.png'; // Empty heart
-    heartImgElement.classList.remove('active-heart');
-  } else {
-    // Add to wishlist
-    wishlist.push(productSlug);
-    heartImgElement.src = '/images/heart-filled.png'; // Make sure you have a filled heart asset!
-    heartImgElement.classList.add('active-heart');
-  }
-  
-  localStorage.setItem('ns_wishlist', JSON.stringify(wishlist));
-  updateWishlistNavCount();
-}
-
-// updates the navigation heart icon with a little badge count if items exist
-function updateWishlistNavCount() {
-  const favoritesBtn = document.getElementById('favorites-btn');
-  if (!favoritesBtn) return;
-  
-  const wishlist = getWishlist();
-  let badge = favoritesBtn.querySelector('.nav-badge');
-  
-  if (wishlist.length > 0) {
-    if (!badge) {
-      badge = document.createElement('span');
-      badge.className = 'nav-badge';
-      favoritesBtn.appendChild(badge);
-    }
-    badge.textContent = wishlist.length;
-  } else if (badge) {
-    badge.remove();
-  }
-}
-
-// Attach a delegation listener to your headers or document on initial load
-document.addEventListener('DOMContentLoaded', () => {
-  updateWishlistNavCount();
-
-  // Redirect to favorites page when clicking the nav button
-  const favoritesBtn = document.getElementById('favorites-btn');
-  if (favoritesBtn) {
-    favoritesBtn.addEventListener('click', () => {
-      window.location.href = '/wishlist.html';
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        executeSearch();
+      }
     });
   }
-});
 
-// --- GLOBAL WISHLIST ENGINE ---
+  if (searchSubmit) {
+    searchSubmit.addEventListener('click', executeSearch);
+  }
+}
 
-// 1. Fetch array from localStorage safely
+// --- GLOBAL WISHLIST ENGINE (Badge städad!) ---
+
 function getWishlist() {
   try {
     return JSON.parse(localStorage.getItem('ns_wishlist')) || [];
@@ -156,57 +116,33 @@ function getWishlist() {
   }
 }
 
-// 2. Main handler to toggle a product on/off
 function toggleWishlist(productSlug, heartImgElement) {
   let wishlist = getWishlist();
   
   if (wishlist.includes(productSlug)) {
-    // Remove from wishlist
     wishlist = wishlist.filter(slug => slug !== productSlug);
     if (heartImgElement) {
-      heartImgElement.src = '/images/heart.png'; // Empty heart
+      heartImgElement.src = '/images/heart.png'; 
       heartImgElement.classList.remove('active-heart');
     }
   } else {
-    // Add to wishlist
     wishlist.push(productSlug);
     if (heartImgElement) {
-      heartImgElement.src = '/images/heart-filled.png'; // Filled heart
+      heartImgElement.src = '/images/heart-filled.png'; 
       heartImgElement.classList.add('active-heart');
     }
   }
   
   localStorage.setItem('ns_wishlist', JSON.stringify(wishlist));
-  updateWishlistNavCount();
 }
 
-// 3. Update the global header badge count indicator automatically
-function updateWishlistNavCount() {
-  const favoritesBtn = document.getElementById('favorites-btn');
-  if (!favoritesBtn) return;
-  
-  const wishlist = getWishlist();
-  let badge = favoritesBtn.querySelector('.nav-badge');
-  
-  if (wishlist.length > 0) {
-    if (!badge) {
-      badge = document.createElement('span');
-      badge.className = 'nav-badge';
-      favoritesBtn.appendChild(badge);
-    }
-    badge.textContent = wishlist.length;
-  } else if (badge) {
-    badge.remove();
-  }
-}
-
-// 4. Initial event attachments on load
 document.addEventListener('DOMContentLoaded', () => {
-  updateWishlistNavCount();
-
-  // Redirect to favorites page when clicking the header heart icon
   const favoritesBtn = document.getElementById('favorites-btn');
   if (favoritesBtn) {
+    // Om det finns en gammal badge kvar på skärmen sedan tidigare, ta bort den helt
+    const oldBadge = favoritesBtn.querySelector('.nav-badge');
+    if (oldBadge) oldBadge.remove();
+
     favoritesBtn.addEventListener('click', () => {
       window.location.href = '/wishlist.html';
     });
@@ -214,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function updateGlobalCartBadge() {
-  const badge = document.getElementById('global-cart-count'); // or whatever your ID is
+  const badge = document.getElementById('global-cart-count'); 
   if (!badge) return;
 
   const cart = JSON.parse(localStorage.getItem('shopping_cart')) || [];
@@ -223,11 +159,6 @@ function updateGlobalCartBadge() {
   badge.textContent = totalItems;
 }
 
-// Update the badge when the page first loads
 document.addEventListener('DOMContentLoaded', updateGlobalCartBadge);
-
-// Update the badge instantly whenever items change in the cart
 window.addEventListener('cartUpdated', updateGlobalCartBadge);
-
-// Run it once the DOM structure loads
 document.addEventListener('DOMContentLoaded', initializeGlobalSearch);

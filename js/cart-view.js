@@ -72,14 +72,15 @@ function renderCartList(dbVariants, storageCart) {
     const lineTotal = finalUnitPrice * item.quantity;
     runningSubtotal += lineTotal;
 
+    // Här är den rena HTML-strukturen utan inline-styles:
     return `
       <div class="cart-item-row" data-variant-id="${item.variantId}">
-        <img src="${variantData.image_url || '/images/placeholder.png'}" alt="${parentProduct?.title || ''}">
+        <img class="cart-item-img" src="${variantData.image_url || '/images/placeholder.png'}" alt="${parentProduct?.title || ''}">
         
-        <div style="flex: 2;">
-          <h4 style="margin: 0 0 5px 0;"><strong>${parentProduct?.brand || 'NS'}</strong> ${parentProduct?.title || ''}</h4>
-          <span style="color: #666; font-size: 0.85rem; display: block; margin-bottom: 2px;">Variant: ${variantData.variant_name || 'Standard'}</span>
-          <span style="color: #888; font-size: 0.85rem;">Enhetspris: ${finalUnitPrice} kr <small style="color:#b71c1c;">(${maxStock} kvar i lager)</small></span>
+        <div class="cart-item-info">
+          <h4 class="cart-item-title"><strong>${parentProduct?.brand || 'NS'}</strong> ${parentProduct?.title || ''}</h4>
+          <span class="cart-item-variant">Variant: ${variantData.variant_name || 'Standard'}</span>
+          <span class="cart-item-stock">Enhetspris: ${finalUnitPrice} kr <small class="stock-warning">(${maxStock} kvar i lager)</small></span>
         </div>
 
         <div class="quantity-selector">
@@ -92,12 +93,12 @@ function renderCartList(dbVariants, storageCart) {
             onclick="adjustCartQtyInline('${item.variantId}', 1, ${maxStock})">+</button>
         </div>
 
-        <div style="font-weight: bold; min-width: 80px; text-align: right; font-size:1.05rem;">
+        <div class="cart-item-total-price">
           ${lineTotal} kr
         </div>
 
-        <button class="remove-cart-item" onclick="removeCartItemDirect('${item.variantId}')" style="margin-left: 10px;">
-          <i class="fa fa-trash-o" style="font-size:1.3rem;"></i>
+        <button class="remove-cart-item" onclick="removeCartItemDirect('${item.variantId}')">
+          <i class="fa fa-trash-o"></i>
         </button>
       </div>
     `;
@@ -144,7 +145,7 @@ function updateSummaryTotals(subtotal) {
     if (checkoutBtn) checkoutBtn.style.display = 'none';
   }
 
-  let shippingCost = 49; 
+  let shippingCost = 61; 
   const threshold = 399;
 
   subtotalEl.textContent = `${subtotal} kr`;
@@ -154,7 +155,7 @@ function updateSummaryTotals(subtotal) {
     if (shippingEl) shippingEl.textContent = 'Gratis';
     if (trackerEl && subtotal > 0) {
       trackerEl.style.borderLeftColor = '#4caf50';
-      trackerEl.innerHTML = `🎉 <strong>Grattis!</strong> Din order är över 399 kr. Du har kvalificerat dig för <strong>fri frakt</strong>!`;
+      trackerEl.innerHTML = `<strong>Grattis!</strong> Din order är över 399 kr. Du har kvalificerat dig för <strong>fri frakt</strong>!`;
     }
   } else {
     if (shippingEl) shippingEl.textContent = `${shippingCost} kr`;

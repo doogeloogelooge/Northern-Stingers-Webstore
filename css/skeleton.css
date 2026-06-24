@@ -151,3 +151,28 @@
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* ==========================================
+   MOBILANPASSNING FÖR SKELETON (SKÄRMAR < 768px)
+   ========================================== */
+   @media (max-width: 768px) {
+  
+    /* Gör text-placeholders bredare på mobil så det ser mer naturligt ut på en smal skärm */
+    .product-page-scope.loading .breadcrumbs {
+      width: 75%; /* Höj tillsynes från 40% */
+    }
+    
+    .product-page-scope.loading .product-meta {
+      width: 50%; /* Höj tillsynes från 25% */
+    }
+    
+    .product-page-scope.loading .product-price {
+      width: 45%; /* Höj tillsynes från 30% */
+    }
+  
+    /* Krymp de laddande tumnaglarna något så de garanterat får plats i bredd på mobilen */
+    .product-page-scope.loading .active-thumb {
+      width: 60px;
+      height: 60px;
+    }
+  }

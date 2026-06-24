@@ -166,7 +166,6 @@ function renderProducts(products) {
     return;
   }
 
-  // 1. Fetch the current wishlist state from localStorage to check against
   const wishlist = JSON.parse(localStorage.getItem('ns_wishlist')) || [];
 
   grid.innerHTML = products.map(product => {
@@ -187,7 +186,6 @@ function renderProducts(products) {
          </div>`
       : '';
 
-    // 2. Check if this specific product is already saved in the user's wishlist
     const isLiked = wishlist.includes(product.slug);
     const heartIconSrc = isLiked ? '/images/heart-filled.png' : '/images/heart.png';
     const activeClass = isLiked ? 'active-heart' : '';
@@ -217,15 +215,16 @@ function renderProducts(products) {
   }).join('');
 }
 
-// --- CORE SEARCH LOAD INITIALIZATION ---
+// --- CORE Search LOAD INITIALIZATION ---
 async function loadSearchResults() {
   const params = new URLSearchParams(window.location.search);
   const query = params.get('q');
   const titleSpan = document.getElementById('search-term-title');
   const grid = document.getElementById('products-grid');
 
-  if (!query) {
-    if (titleSpan) titleSpan.textContent = 'Ingen sökning angiven';
+  // Om vi inte har ett sökord, eller om sidan saknar ett produkt-grid, avbryt direkt.
+  if (!query || !grid) {
+    if (titleSpan && !query) titleSpan.textContent = 'Ingen sökning angiven';
     return;
   }
 

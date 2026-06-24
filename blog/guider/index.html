@@ -12,30 +12,50 @@
     <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
-    <header id="hero-banner-red">
-        <strong>SUMMER 10! 10% off all products!</strong>
-    </header>
-    <header id="hero-banner">
-        <strong>Free shipping for all orders over 399 kr!</strong>
-    </header>
-    <header id="main-header">
-        <a id="logo-button" href="/homepage">
-            <img id="logo-button-img" src="/images/logo.png" alt="logo">
-        </a>
-        <div id="search-bar">
-            <input type="text" placeholder="Follow your heart..."></input>
-            <button><img src="/images/search.png" alt=""></button>
+   <div class="announcement-stack">
+        <div id="promo-notice-prime">SUMMER 10! 10% off all products!</div>
+        <div id="logistic-notice-sub">Free shipping for all orders over 399 kr! | <i class="fa fa-exclamation-triangle"></i> Earliest shipping for new orders 7 July. <i class="fa fa-exclamation-triangle"></i></div>
+    </div>
+    
+    <header id="boutique-navigation-hub">
+        <div class="brand-anchorage">
+            <a id="brand-link" href="/homepage">
+                <img id="brand-logo-media" src="/images/logo.png" alt="Logo">
+            </a>
         </div>
-        <nav id="header-nav">
-            <button id="favorites-btn"><img src="/images/heart.png" alt=""></button>
-            <button id="account-btn"><img src="/images/user.png" alt=""></button>
-            <button id="cart-toggle-btn" class="cart-btn"><img src="/images/shopping-cart.png" alt=""></button>
+    
+        <nav class="client-utility-bar">
+            <button id="client-profile-trigger" class="utility-action-node">
+                <img src="/images/user.png" alt="Konto">
+            </button>
+            
+            <button id="search-btn" class="utility-action-node">
+                <img src="/images/search.png" alt="Sök">
+            </button>
+
+            <button id="favorites-btn" class="utility-action-node">
+                <img src="/images/heart.png" alt="">
+            </button>
+            
+            <a href="/cart/" id="bag-status-gate" class="utility-action-node">
+                <img src="/images/shopping-cart.png" alt="Varukorg">
+            </a>
         </nav>
-    </header>
+
+        <div id="search-bar" class="search-overlay-drawer">
+            <div class="search-inner-container">
+                <input type="text" id="search-input" placeholder="Search">
+                <button id="search-submit-action">
+                    <img src="/images/search.png" alt="Sök">
+                </button>
+            </div>
+        </div>
+    </header> 
     
     <nav class="nav-bar">
         <ul class="nav-links" id="nav-links"></ul>
     </nav>
+
 
     <main>
         <section class="blogs-header">
@@ -95,7 +115,7 @@
             </div>
             <div class="social-row">
                 <a href="https://www.instagram.com/northernstingers/" class="social-circle"><img src="/images/instagram.png" alt="instagram"></a>
-                <a href="https://www.tiktok.com/@callzonker" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
+                <a href="https://www.tiktok.com/@northernstingers" class="social-circle"><img src="/images/tik-tok.png" alt="tiktok"></a>
                 <a href="https://discord.gg/rxwCHHrxPk" class="social-circle"><img src="/images/discord.png" alt="discord"></a>
             </div>
 

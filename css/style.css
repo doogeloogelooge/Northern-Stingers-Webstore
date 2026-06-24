@@ -62,66 +62,6 @@ h1, h2, h3{
   aspect-ratio: 1;
 }
 
-#search-bar{
-  background-color: transparent;
-  width: 20%;
-  height: 43px;
-
-  display: flex;
-  justify-content: space-between;
-  
-  border: none;
-}
-
-#search-bar input{
-  background-color: #F0EDEE;
-  color: #0A090C;
-  width: 90%;
-  height: 100%;
-  
-  float: right;
-  padding: 5px 16px;
-  box-sizing: border-box;
-  border: none;
-  font-size: large;
-  border-radius: 30px;
-  font-size: 10pt;
-}
-
-#search-bar button{
-  background-color: #F0EDEE;
-  color: #0A090C;
-  height: 100%;
-  aspect-ratio: 1;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  font-size: large;
-  border-radius: 30px;
-  transition: 0.3s ease;
-  margin-left: 10px;
-}
-
-#search-bar button img{
-  height: 60%;
-  object-fit: cover;
-}
-
-#search-bar button:hover{
-  background-color: #d4d8e2;
-  cursor: pointer;
-  transform: scale(110%);
-  transition: 0.3s ease;
-}
-#search-bar button:active{
-  background-color: #d4d8e2;
-  cursor: pointer;
-  transform: scale(85%);
-  transition: 0.18s ease;
-}
-
 #header-nav{
   background-color: transparent;
   color: #0A090C;
@@ -167,6 +107,7 @@ h1, h2, h3{
   width: 100%;
   height: 40px;
   background-color: #F0EDEE;
+  position: relative;
 }
 
 .nav-links{
@@ -196,6 +137,10 @@ li{
   cursor: pointer;
   transform: scale(110%);
   transition: 0.3s ease;
+}
+
+.nav-links{
+  padding-left: 10px;
 }
 
 a{
@@ -2210,3 +2155,796 @@ p{
 .quantity-selector .qty-input[type=number] {
   -moz-appearance: textfield;
 }
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cookie-banner.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 20px);
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-btn {
+  background-color: #4caf50; /* Grön färg, ändra så den matchar din shop! */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cookie-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsiv design för mobiler */
+@media (min-width: 768px) {
+  .cookie-content {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
+
+/* Huvudheadern */
+#boutique-navigation-hub {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f2121;
+  padding: 30px 40px;
+  border-bottom: 1px solid #eaeaea;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  z-index: 1000; /* Säkerställer att hela headern ligger över sidans övriga innehåll */
+}
+
+/* 1. Tvinga loggans behållare att ligga absolut centrerad i headern */
+.brand-anchorage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+#brand-logo-media {
+  height: 60px;
+  width: auto;
+}
+
+/* 2. Se till att ikongruppen alltid skjuts till högerkanten */
+.client-utility-bar {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto; /* Detta trycker ut ikonerna till höger oavsett skärmstorlek */
+}
+
+.utility-action-node {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Gör ikonerna i headern vita */
+.utility-action-node img {
+  width: 19px;
+  height: 19px;
+  transition: opacity 0.2s ease;
+  filter: brightness(0) invert(1); 
+}
+
+.utility-action-node img:hover {
+  opacity: 0.5;
+}
+
+
+
+/* --- SÖKBAR (UTDRAGBAR PANEL) --- */
+.search-overlay-drawer {
+  position: absolute !important;
+  top: 100% !important; /* Placerar den exakt under elementet den ligger i */
+  left: 0 !important;
+  width: 100% !important; /* Tar upp 100% av bredden på skärmen */
+  
+  /* Garanterat helt solid kritvit bakgrund */
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+  
+  /* Fixar padding-problemet så den inte blir för bred eller konstig */
+  box-sizing: border-box !important;
+  padding: 24px 40px !important;
+  
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  z-index: 9999999 !important; /* Lägger den över ALLT annat */
+  display: none !important; /* Dold som standard */
+}
+
+/* Visas när man klickar på förstoringsglaset */
+.search-overlay-drawer.active {
+  display: block !important;
+}
+
+
+/* Centrerar sökstrecket inuti den skärmbreda panelen */
+/* Centrerar sökstrecket vertikalt och horisontellt inuti panelen */
+.search-inner-container {
+  max-width: 500px;         
+  margin: 0 auto;           
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #111111; 
+  padding: 4px 0;           /* Skapar lite andningsrum ovanför och under sökstrecket */
+  height: 36px;             /* 🌟 Sätter en fast höjd så att den inte kollapsar */
+  box-sizing: border-box;   /* Säkerställer att höjden beräknas korrekt */
+}
+
+/* Själva textinmatningen */
+#search-input {
+  width: 100%;
+  border: none !important;
+  outline: none !important;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  background: transparent !important;
+  color: #111111;
+  height: 100%;             /* 🌟 Låter textfältet ta upp hela behållarens höjd */
+  margin: 0;
+  padding: 0;
+}
+
+#search-input::placeholder {
+  color: #999999;
+}
+
+/* Sökknappen */
+#search-submit-action {
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer;
+  padding: 0 0 0 10px;      /* Ger lite avstånd till vänster om ikonen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;             /* 🌟 Matchar höjden på behållaren */
+}
+
+#search-submit-action img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: none !important; 
+}
+
+#search-submit-action img:hover {
+  transform: scale(1.05);
+}
+
+/* Notiser/Banners */
+.announcement-stack div {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  text-transform: uppercase;
+}
+
+#promo-notice-prime { background-color: #000; color: #fff; }
+#logistic-notice-sub { background-color: #f9f9f9; color: #000; }
+
+/* ==========================================================================
+   MOBILANPASSNING (Gäller skärmar under 768px)
+   ========================================================================== */
+   @media (max-width: 768px) {
+  
+    /* 1. Förhindra horisontell scroll på hela sajten */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+  
+    /* 2. Åtgärda negativa marginaler på artiklar som trycker ut skärmen */
+    article {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 0 15px;
+    }
+  
+    /* 3. Anpassa Shop/Kategori-layouten (Stapla sidebar och innehåll) */
+    .shop-container {
+      flex-direction: column !important;
+      display: flex !important;
+      padding: 10px !important;
+      gap: 20px !important;
+    }
+    
+    #category-sidebar {
+      width: 100% !important;
+      flex: none !important;
+      box-sizing: border-box;
+    }
+  
+    /* 4. Banner-grids: Gör så att de staplas istället för att ligga i bredd */
+    .banner-grid, 
+    .banner-grid2,
+    .banner-grid3 {
+      grid-template-columns: 1fr !important;
+      gap: 15px !important;
+      padding: 0 15px !important;
+    }
+  
+    /* Justera aspect-ratio på mobilen så bilderna inte blir gigantiska på höjden */
+    .banner-card, .banner-card2, .banner-card3 {
+      aspect-ratio: 4 / 3 !important;
+    }
+  
+    /* 5. Populära kategorier: Sätt till 2 i bredd istället för 4 */
+    .popular-categories {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+      padding: 10px !important;
+    }
+    
+    .category-card {
+      font-size: 12px !important;
+      padding: 8px !important;
+      gap: 8px !important;
+    }
+    
+    .category-card img {
+      height: 35px !important;
+    }
+    
+    .category-card span {
+      font-size: 11pt !important;
+    }
+  
+    /* 6. Skryt-bannern (Fri frakt osv): Stapla ikonerna vertikalt */
+    .skryt-container {
+      flex-direction: column !important;
+      gap: 15px !important;
+      text-align: center !important;
+      padding: 20px 10px !important;
+    }
+    
+    .skryt-del {
+      justify-content: center !important;
+    }
+  
+    /* 7. Varukorgs-drawern (Cart Drawer): Se till att den inte är bredare än skärmen */
+    .cart-drawer {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  
+    /* 8. Footer: Justera länk-gridet från 4 kolumner till 1 eller 2 */
+    .footer-links-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 30px 15px !important;
+      padding: 0 20px !important;
+    }
+    
+    footer {
+      height: auto !important; /* Låt footern expandera naturligt på höjden */
+      padding-bottom: 40px !important;
+    }
+    
+    .footer-logo img {
+      margin-top: 30px !important;
+      margin-bottom: 15px !important;
+    }
+  
+    /* 9. Produktsida: Stapla bild och detaljer */
+    .product-container {
+      flex-direction: column !important;
+      gap: 20px !important;
+      padding: 15px !important;
+    }
+  
+    /* 10. Filter-bar och dropdown-paneler */
+    .filter-bar {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+      padding: 12px !important;
+    }
+    
+    .filters {
+      width: 100% !important;
+      flex-wrap: wrap !important;
+    }
+    
+    .dropdown-menu-panel {
+      width: calc(100vw - 40px) !important; /* Gör dropdownen responsiv */
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* ... dina andra mobilregler ... */
+  
+    /* Se till att headern sätter elementen i en rad och trycker ut dem mot kanterna */
+    #boutique-navigation-hub {
+      padding: 10px 15px !important;
+      display: flex !important;
+      flex-direction: row !important; /* Tvingar rad istället för stapling */
+      justify-content: space-between !important; /* Logga till vänster, ikoner till höger */
+      align-items: center !important;
+    }
+  
+    /* Justera loggans placering så den trycks helt till vänster */
+    .brand-anchorage {
+      position: static !important;
+      transform: none !important;
+      margin-right: auto !important; /* Skjuter bort de andra elementen till höger */
+    }
+  
+    /* Se till att länkarna/ikonerna till höger håller ihop fint */
+    .client-utility-bar {
+      display: flex !important;
+      gap: 15px !important;
+      margin-left: auto !important;
+    }
+  }
+
+  /* --- Desktop-hantering --- */
+.desktop-subcategories {
+  display: block;
+}
+
+#mobile-subcategory-container {
+  display: none; /* Göm helt på desktop */
+}
+
+/* --- Mobil-anpassning (Kompakt dropdown) --- */
+@media (max-width: 768px) {
+  .desktop-subcategories {
+    display: none; /* Göm desktop-listan på mobilen */
+  }
+
+  #mobile-subcategory-container {
+    display: block; /* Visa behållaren på mobilen */
+    margin-top: 10px; /* Ger ett litet och snyggt avstånd under beskrivningen/knappen */
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 250px; /* Begränsar bredden så den inte sträcker sig över hela skärmen */
+  }
+
+  .mobile-subcategories-dropdown select {
+    width: 100%;
+    padding: 8px 30px 8px 10px; /* Mindre padding för en mer kompakt look */
+    font-size: 14px; /* Lite mindre text, men fortfarande lättläst */
+    color: #444;
+    background-color: #f9f9f9; /* Ljusgrå bakgrund för att kännas mer diskret */
+    border: 1px solid #ddd;
+    border-radius: 6px; /* Lite mindre rundade hörn */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* En mindre och diskretare pil */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'><path fill='%23666' d='M0 0l4 4 4-4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    cursor: pointer;
+    box-shadow: none;
+  }
+
+  .mobile-subcategories-dropdown select:focus {
+    outline: none;
+    border-color: #888;
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Dölj hela desktop-sidebaren helt på mobilskärmar */
+  #category-sidebar {
+    display: none !important;
+  }
+}
+
+/* --- VARUKORG STYLING (DESKTOP) --- */
+.cart-page-wrapper {
+  max-width: 1200px;
+  margin: 40px auto 200px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.cart-page-title {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+#shipping-tracker-banner {
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  border-left: 4px solid #000;
+  font-weight: 500;
+}
+
+.cart-split-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cart-items-list {
+  flex: 2;
+  min-width: 300px;
+}
+
+.cart-summary-sidebar {
+  flex: 1;
+  min-width: 300px;
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 8px;
+  height: max-content;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+}
+
+.summary-title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.summary-total-row {
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-top: 2px solid #000;
+  padding-top: 15px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+.checkout-proceed-btn {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+#checkout-swish-btn {
+  width: 100%;
+  background: #12b50a;
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+#checkout-swish-btn img {
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  /* Minska yttermarginaler och det enorma tomrummet i botten */
+  .cart-page-wrapper {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding: 0 12px; /* Ger mer textutrymme på bredden */
+  }
+
+  .cart-page-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  #shipping-tracker-banner {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* Tvinga elementen att staplas snyggt på varandra */
+  .cart-split-container {
+    gap: 20px;
+  }
+
+  .cart-items-list, 
+  .cart-summary-sidebar {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  /* Justera rutan för ordersammanställning så texten inte kläms */
+  .cart-summary-sidebar {
+    padding: 15px 12px; /* Mindre padding sparar mycket bredd */
+  }
+
+  /* Säkra raderna så att text och priser aldrig krockar eller klipps */
+  .summary-row {
+    gap: 8px; /* Tvingar fram ett minsta avstånd */
+  }
+
+  .summary-row span {
+    font-size: 14px; /* Lite mer kompakt text på mobilen */
+  }
+
+  .summary-total-row {
+    font-size: 1.1rem;
+    padding-top: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* Gör Swish-knappen mer mobil-vänlig */
+  #checkout-swish-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+
+  #checkout-swish-btn img {
+    height: 20px; /* Loggan skalas ner något i proportion till texten */
+  }
+}
+
+/* --- PRODUKTRADER I VARUKORGEN (DESKTOP) --- */
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cart-item-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cart-item-info {
+  flex: 2;
+}
+
+.cart-item-title {
+  margin: 0 0 5px 0;
+  font-size: 1.05rem;
+}
+
+.cart-item-variant {
+  color: #666;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.cart-item-stock {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.stock-warning {
+  color: #b71c1c;
+}
+
+/* Kvantitetsväljaren */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.qty-btn {
+  background: #f4f4f4;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.qty-btn:hover {
+  background: #ddd;
+}
+
+.qty-input {
+  width: 35px;
+  height: 32px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.cart-item-total-price {
+  font-weight: bold;
+  min-width: 80px;
+  text-align: right;
+  font-size: 1.05rem;
+}
+
+.remove-cart-item {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.remove-cart-item:hover {
+  color: #c0392b;
+}
+
+.remove-cart-item i {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  /* Förvandla raden till ett grid eller flexbox-layout så att ingenting trycks ut */
+  .cart-item-row {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    padding: 15px 5px;
+    position: relative;
+    align-items: start;
+  }
+
+  /* Gör produktbilden något mindre */
+  .cart-item-img {
+    width: 60px;
+    height: 60px;
+    grid-column: 1;
+    grid-row: 1 / span 2; /* Låter bilden sträcka sig över båda raderna på höjden */
+  }
+
+  /* Textinfon hamnar i mitten på översta raden */
+  .cart-item-info {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    padding-right: 25px; /* Lämnar plats åt soptunnan */
+  }
+
+  .cart-item-title {
+    font-size: 0.95rem;
+  }
+
+  /* Flytta ner kvantitetsväljaren och totalpriset till rad två */
+  .quantity-selector {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 5px;
+  }
+
+  .cart-item-total-price {
+    grid-column: 3;
+    grid-row: 2;
+    text-align: right;
+    align-self: center;
+    font-size: 1rem;
+    min-width: auto;
+  }
+
+  /* Sätt soptunnan absolut i övre högra hörnet så den inte bråkar med flödet */
+  .remove-cart-item {
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    margin-left: 0;
+    padding: 4px;
+  }
+  
+  .remove-cart-item i {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Krymp hela kvantitetsväljaren så den blir smalare */
+  .quantity-selector {
+    display: flex !important;
+    width: auto !important;
+    max-width: 90px !important; /* Begränsar totala bredden hårt */
+    height: 28px !important;    /* Gör den lite lägre och smidigare */
+  }
+
+  /* Gör minus- och plusknapparna mindre */
+  .quantity-selector .qty-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.9rem !important;
+    line-height: 28px !important;
+    padding: 0 !important;
+  }
+
+  /* Krymp själva sifferfältet i mitten */
+  .quantity-selector .qty-input {
+    width: 30px !important;
+    height: 28px !important;
+    font-size: 0.85rem !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  /* ... dina andra mobilregler ... */
+
+  .skryt-container {
+    flex-direction: column !important; /* Stapla skryt-delarna på höjden */
+    gap: 15px !important;              /* Skapa luft mellan raderna */
+    padding: 15px 20px !important;     /* Lägg till sidomarginaler så det inte slickar kanterna */
+    margin-top: 40px !important;       /* Minska avståndet uppåt lite på mobilen */
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
+
+  .skryt-del {
+    justify-content: center !important; /* Centrera ikonen och texten */
+    width: 100% !important;
+  }
+  
+  .skryt-del span {
+    font-size: 11pt !important;        /* Gör texten snäppet mindre så den får plats bra */
+    text-align: left !important;       /* Behåll vänsterställd text bredvid ikonen */
+  }
+}
+

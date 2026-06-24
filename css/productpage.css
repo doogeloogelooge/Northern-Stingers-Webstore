@@ -380,3 +380,55 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+
+/* ==========================================
+   MOBILANPASSNING FÖR PRODUKTSIDAN (< 768px)
+   ========================================== */
+   @media (max-width: 768px) {
+  
+    /* 1. Gör produktbilden mer kompakt så användaren slipper scrolla i evigheter */
+    .product-page-scope .main-image {
+      min-height: 280px !important; /* Sänk från 400px */
+      padding: 15px !important;     /* Mer yta till själva bilden */
+    }
+  
+    /* 2. Centrera tumnaglarna och låt dem bryta rad om det finns många bilder */
+    .product-page-scope .thumbnail-gallery {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  
+    /* 3. Justera textstorleken på produkttiteln så den inte tar upp halva skärmen */
+    .product-page-scope .product-title {
+      font-size: 1.6rem !important; /* Blir snyggare än fasta 20pt på mobil */
+    }
+  
+    /* 4. Skapa en stor och "tum-vänlig" köpknapp genom att stapla dem vertikalt */
+    .product-page-scope .purchase-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .product-page-scope .quantity-selector {
+      width: 100%; /* Gör antalsväljaren fullbredd */
+      justify-content: space-between;
+    }
+  
+    .product-page-scope .qty-btn {
+      flex: 1; /* Gör plus/minus-knapparna mycket lättare att träffa med tummen */
+      height: 44px;
+    }
+  
+    .product-page-scope .buy-button {
+      width: 100%;
+      padding: 14px; /* Gör knappen lite tjockare och lyxigare på mobil */
+      height: 48px;
+    }
+    
+    /* 5. Ge tillvals-bannern (addons) lite mer andningsrum */
+    .product-page-scope .addon-card {
+      padding: 10px;
+      gap: 12px;
+    }
+  }

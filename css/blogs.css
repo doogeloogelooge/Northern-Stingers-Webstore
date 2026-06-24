@@ -137,3 +137,41 @@
       grid-template-columns: 1fr; 
   }
 }
+
+/* ==========================================
+   MOBILANPASSNING FÖR BLOGGEN (< 768px)
+   ========================================== */
+   @media (max-width: 768px) {
+  
+    /* 1. Centrera hela headern så att logga/titel och nav hamnar snyggt under varandra */
+    .header-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+  
+    /* 2. Krymp den enorma rubriken så den inte klipper eller tar upp hela skärmen */
+    .header-container h1 {
+      font-size: 20pt !important; /* Sänk från 28pt */
+      margin: 0;
+    }
+  
+    /* 3. Gör navigeringsfälten mer flexibla om länkarna blir många */
+    .top-nav {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .top-nav a {
+      padding: 8px 12px; /* Något mindre padding för att spara utrymme */
+      font-size: 12px;
+    }
+  
+    /* 4. Se till att bloggkorten inte klistrar sig djupt mot skärmens ytterkanter */
+    .card-grid {
+      padding: 0 15px;
+      gap: 20px; /* Lite tightare glapp mellan korten på mobil */
+    }
+  }

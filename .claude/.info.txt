@@ -6,7 +6,7 @@ Domain: www.northernstingers.store
 Repository: GitHub
 Company Name: Northern Stingers
 Company Audience: Fishermen
-Company Social Media: @northernstingers = Instagram, @callzonker = TikTok, FaceBook = coming soon.
+Company Social Media: @northernstingers = Instagram, @northernstingers = TikTok, FaceBook = coming soon.
 Theme: Dark and sleek, minimalistic.
 Company Origin: Sweden, Stockholm.
 Company Goal: Good prices that even young anglers can afford.
