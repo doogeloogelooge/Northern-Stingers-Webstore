@@ -2948,3 +2948,158 @@ p{
   }
 }
 
+#oppna-pos {
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+#inga-oppna {
+  color: #909090;
+}
+
+#bread {
+  color: #333;
+}
+
+#positioner-article {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.positioner-cont {
+  width: 60%;
+}
+
+#positioner-logo {
+  width: 30%;
+  height: auto;
+  filter: invert(1);
+}
+
+@media (max-width: 768px) {
+  #positioner-article {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .positioner-cont {
+    width: 100%;
+  }
+
+  #positioner-logo {
+    width: 50%;
+    height: auto;
+    filter: invert(1);
+    margin-top: 25px;
+  }
+}
+
+/* Dropdown / Accordion Styling */
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.faq-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 20px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.faq-trigger:hover {
+  background-color: #f7f9f5;
+}
+
+.faq-trigger i {
+  color: #458500;
+  transition: transform 0.2s ease;
+}
+
+/* Själva texten som göms/visas */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #fafafa;
+}
+
+.faq-content-inner {
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Aktivt tillstånd (när dropdownen är öppen) */
+.faq-item.active .faq-content {
+  max-height: 500px; /* Tillräckligt högt för att rymma texten */
+}
+
+.faq-item.active .faq-trigger i {
+  transform: rotate(180deg);
+}
+
+/* Kontaktkort längst ner */
+.contact-card {
+  background-color: #f9f9f9;
+  border-left: 4px solid #458500;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 0 6px 6px 0;
+}
+
+.contact-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.15rem;
+  color: #111;
+}
+
+.contact-card p {
+  margin: 5px 0;
+}
+
+.contact-card a {
+  color: #458500;
+  text-decoration: underline;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #458500;
+  color: #fff;
+}
+
+.policy-accent-box {
+  background-color: #f9f9f9;
+  border-left: 4px solid #458500;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}

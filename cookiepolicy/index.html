@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
+  <script src="/js/cart.js" defer></script>
+  <script src="/js/home.js" defer></script>
+  <script type="module" src="/js/main.js"></script>
   <title>Northern Stingers</title><link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -125,11 +128,11 @@
             <div class="link-column">
                 <a href="/cookiepolicy">Cookiepolicy</a>
                 <a href="/nyhetsbrev-signup">Nyhetsbrev</a>
-                <a href="/tillgänglighetsredogorelse">Tillgänglighetsredogörelse</a>
+                <a href="/tillganglighetsredogorelse">Tillgänglighetsredogörelse</a>
             </div>
             <div class="link-column">
                 <a href="/jobba-hos-oss">Jobba hos oss</a>
-                <a href="/om-oss">Om oss</a>
+                <a href="/vart-mal">Om oss</a>
             </div>
             <div class="link-column">
                 <a href="/kop-och-leveransvillkor">Köp- och leveransvillkor</a>
@@ -156,5 +159,8 @@
         </div>
     </article>
   </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
 </body>
 </html>
