@@ -1,3 +1,6 @@
+// 1. Global variabel för att spara databasinfon så att handleOrderSubmit kan nå den
+let globalDbVariants = []; 
+
 document.addEventListener('DOMContentLoaded', initCheckoutPage);
 
 async function initCheckoutPage() {
@@ -29,6 +32,9 @@ async function initCheckoutPage() {
 
     if (error) throw error;
 
+    // 2. Spara datan globalt här så vi kan använda den i EmailJS-mailet senare
+    globalDbVariants = variants; 
+    
     renderCheckoutSummary(variants, cart);
 
   } catch (err) {
@@ -98,38 +104,32 @@ async function handleOrderSubmit(e) {
   const phone = document.getElementById('phone').value;
 
   const fullName = `${firstname} ${lastname}`;
+  const fullAddress = `${address}, ${zip} ${city}`;
 
-  // 2. Hämta varorna från varukorgen
   // 2. Hämta varorna från varukorgen
   const cart = typeof getCart === 'function' ? getCart() : [];
   
-  // 🔥 NY FORMATE-RING FÖR WEBHOOKEN:
-  // Vi mappar om cart-objekten så att de matchar det exakta formatet databasen/webhooken vill ha.
+  // 3. Förbered data för Supabase 'orders'-tabellen
   const cleanCart = cart.map(item => {
-    // Dynamisk sammanslagning av namn och variant, t.ex. "Small Chain Stinger (UV)"
-    // Om item.variant inte finns blir det bara produktens namn.
-    console.log(item.title)
-    
-    const combinedName = item.variant 
-      ? `${item.title} (${item.variant})` 
-      : item.title;
+    // Vi kikar i vår globala databasvariabel för att sätta rätt namn i Supabase-ordern också
+    const dbInfo = globalDbVariants.find(v => v.id === item.variantId);
+    const combinedName = dbInfo 
+      ? `${dbInfo.products?.brand || ''} ${dbInfo.products?.title || ''} (${dbInfo.variant_name || ''})`
+      : 'Okänd produkt';
 
     return {
       quantity: parseInt(item.quantity) || 1,
       variantId: item.variantId,
-      productSlug: item.productSlug || "", // Lägger till productSlug (eller tom sträng om det saknas)
-      name: combinedName                   // 🌟 Lägger till det sammanslagna namnet inuti objektet!
+      productSlug: item.productSlug || "",
+      name: combinedName                 
     };
   });
   
-  // Hämta totalsumman direkt från din ordersammanställning på skärmen
   const finalTotalText = document.getElementById('checkout-final-total')?.textContent || "0";
   const totalPrice = parseInt(finalTotalText.replace(/[^0-9]/g, '')) || 0;
   
-  // Generera ett unikt ordernummer direkt i JS
   const generatedOrderId = 'NS-' + Math.floor(1000 + Math.random() * 9000); 
 
-  // 3. Kolla om det finns en inloggad användare
   let currentUserId = null;
   try {
     const { data: { session } } = await supabaseClient.auth.getSession();
@@ -149,26 +149,60 @@ async function handleOrderSubmit(e) {
           order_id: generatedOrderId,       
           customer_name: fullName,          
           email: email,                     
-          address: `${address}, ${zip} ${city}`, 
+          address: fullAddress, 
           phone: phone,                     
           total_price: totalPrice,          
-          items: cleanCart,                       // ✅ Skickar arrayen precis som den är
-          order_status: 'Placed',            // Sätter till 'Placed' enligt din CSV
+          items: cleanCart,                       
+          order_status: 'Placed',            
           user_id: currentUserId             
         }
-      ]); // 🔥 FIXEN: Helt utan .select() och .single() på slutet!
+      ]);
 
     if (error) throw error;
 
-    // 5. Töm varukorgen eftersom ordern nu är sparad
+    // 5. SKICKA ORDERBEKRÄFTELSE MED EMAILJS 🌟
+    try {
+      // Bygg textraderna genom att matcha varukorgen med sparat Supabase-data
+      const orderDetailsText = cart.map(item => {
+        const dbInfo = globalDbVariants.find(v => v.id === item.variantId);
+        
+        if (dbInfo) {
+          const brand = dbInfo.products?.brand || '';
+          const title = dbInfo.products?.title || '';
+          const variantName = dbInfo.variant_name || '';
+          return `${brand} ${title} - ${variantName} (x${item.quantity})`;
+        }
+        
+        return `Produkt ID: ${item.variantId} (x${item.quantity})`;
+      }).join('\n');
+
+      // Parametrar som matchar måsvingarna {{ }} i din EmailJS-mall
+      const templateParams = {
+        to_email: email,
+        customer_name: fullName,
+        customer_address: fullAddress,
+        order_id: generatedOrderId,
+        order_details: orderDetailsText, 
+        total_price: totalPrice
+      };
+
+      // Skicka mailet asynkront
+      await emailjs.send('service_x77dvus', 'template_wpkercp', templateParams);
+      console.log('Orderbekräftelse skickad via EmailJS!');
+    } catch (emailErr) {
+      // Logga bara felet så att köpet inte avbryts helt om mailet nekas
+      console.error('EmailJS misslyckades att skicka:', emailErr);
+    }
+
+    // 6. Töm varukorgen eftersom ordern nu är sparad och klar
     localStorage.removeItem('shopping_cart'); 
 
-    // 6. Skicka kunden till tack-sidan med det genererade numret
+    // 7. Skicka kunden till tack-sidan
     window.location.href = `/thank-you.html?orderId=${generatedOrderId}&total=${totalPrice}`;
 
   } catch (err) {
     console.error('Kunde inte spara ordern:', err);
-    alert('Det gick inte och slutföra beställningen. Kontrollera dina uppgifter och försök igen.');
+    alert('Det gick inte att slutföra beställningen. Kontrollera dina uppgifter och försök igen.');
     
     if (swishBtn) {
       swishBtn.disabled = false;

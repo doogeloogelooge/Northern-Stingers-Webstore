@@ -395,6 +395,8 @@
       flex-wrap: wrap;
       gap: 5px;
       padding: 6px;
+      margin-right: 12px;
+      margin-left: 12px;
     }
   
     .top-nav a {
@@ -512,3 +514,14 @@
   }
 } 
 
+/* Gömmer sidofältet på skärmar som är 768px breda eller mindre (mobiler och mindre surfplattor) */
+@media (max-width: 768px) {
+  aside.sidebar {
+      display: none;
+  }
+  
+  /* Om du vill att huvudinnehållet ska ta upp hela bredden (100%) på mobilen */
+  .main-content {
+      width: 100%;
+  }
+}

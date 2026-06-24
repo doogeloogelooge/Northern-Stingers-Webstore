@@ -13,7 +13,7 @@
 
  <div class="announcement-stack">
         <div id="promo-notice-prime">SUMMER 10! 10% off all products!</div>
-        <div id="logistic-notice-sub">Free shipping for all orders over 399 kr! | <i class="fa fa-exclamation-triangle"></i> Earliest shipping for new orders 7 July. <i class="fa fa-exclamation-triangle"></i></div>
+                <div id="logistic-notice-sub">Free shipping for all orders over 399 kr! <br> <i class="fa fa-exclamation-triangle"></i> Earliest shipping for new orders 7 July. <i class="fa fa-exclamation-triangle"></i></div>
     </div>
     
     <header id="boutique-navigation-hub">
@@ -166,7 +166,15 @@
     </article>
   </footer>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+     (function(){
+        emailjs.init("5-uBfNh-GBQ9QV7E4"); 
+     })();
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/js/supabase.js"></script> <script src="/js/cart.js"></script> <script src="/js/checkout.js"></script>
+  <script src="/js/supabase.js"></script> <script src="/js/cart.js"></script>
+  <script src="/js/checkout.js"></script>
 </body>
 </html>
